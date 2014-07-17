@@ -54,16 +54,6 @@ public:
   void scale(const ci::Vec2f& s);
   ci::MatrixAffine2f currentTransform();
 
-  // Images
-  // TODO(ryan): These should be modified to use cinder's Surfaces, and should
-  // probably be split out into a memory-safe class.
-  int createImage(const std::string& filename);
-  int createImageMem(unsigned char* data, int ndata);
-  int createImageRGBA(int w, int h, const unsigned char* data);
-  void updateImage(int image, const unsigned char* data);
-  void imageSize(int image, int* w, int* h);
-  void deleteImage(int image);
-
   // Paints
   NVGpaint linearGradient(float sx, float sy, float ex, float ey, NVGcolor icol, NVGcolor ocol);
   NVGpaint boxGradient(float x, float y, float w, float h, float r, float f, NVGcolor icol, NVGcolor ocol);

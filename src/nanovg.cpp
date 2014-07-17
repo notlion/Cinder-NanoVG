@@ -109,31 +109,6 @@ MatrixAffine2f Context::currentTransform() {
 }
 
 
-int Context::createImage(const string& filename) {
-  return nvgCreateImage(mCtx.get(), filename.c_str());
-}
-
-int Context::createImageMem(unsigned char* data, int ndata) {
-  return nvgCreateImageMem(mCtx.get(), data, ndata);
-}
-
-int Context::createImageRGBA(int w, int h, const unsigned char* data) {
-  return nvgCreateImageRGBA(mCtx.get(), w, h, data);
-}
-
-void Context::updateImage(int image, const unsigned char* data) {
-  nvgUpdateImage(mCtx.get(), image, data);
-}
-
-void Context::imageSize(int image, int* w, int* h) {
-  nvgImageSize(mCtx.get(), image, w, h);
-}
-
-void Context::deleteImage(int image) {
-  nvgDeleteImage(mCtx.get(), image);
-}
-
-
 NVGpaint Context::linearGradient(float sx, float sy, float ex, float ey, NVGcolor icol, NVGcolor ocol) {
   return nvgLinearGradient(mCtx.get(), sx, sy, ex, ey, icol, ocol);
 }
@@ -186,7 +161,7 @@ void Context::quadTo(float cx, float cy, float x, float y) {
   nvgQuadTo(mCtx.get(), cx, cy, x, y);
 }
 
-void Context::quadTo(const Vec2f &p1, const ci::Vec2f& p2) {
+void Context::quadTo(const Vec2f& p1, const ci::Vec2f& p2) {
   quadTo(p1.x, p1.y, p2.x, p2.y);
 }
 
