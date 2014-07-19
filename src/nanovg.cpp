@@ -5,15 +5,20 @@ using namespace ci;
 
 namespace nvg {
 
-
 void Context::beginFrame(int windowWidth, int windowHeight, float devicePixelRatio) {
   nvgBeginFrame(mCtx.get(), windowWidth, windowHeight, devicePixelRatio);
+}
+
+void Context::beginFrame(const Vec2i& windowSize, float devicePixelRatio) {
+  beginFrame(windowSize.x, windowSize.y, devicePixelRatio);
 }
 
 void Context::endFrame() {
   nvgEndFrame(mCtx.get());
 }
 
+
+// State Handling
 
 void Context::save() {
   nvgSave(mCtx.get());
@@ -28,9 +33,12 @@ void Context::reset() {
 }
 
 
+// Render Styles
+
 void Context::strokeColor(const NVGcolor& color) {
   nvgStrokeColor(mCtx.get(), color);
 }
+
 void Context::strokeColor(const ColorAf& color) {
   strokeColor(reinterpret_cast<const NVGcolor&>(color));
 }
@@ -38,6 +46,7 @@ void Context::strokeColor(const ColorAf& color) {
 void Context::fillColor(const NVGcolor& color) {
   nvgFillColor(mCtx.get(), color);
 }
+
 void Context::fillColor(const ColorAf& color) {
   fillColor(reinterpret_cast<const NVGcolor&>(color));
 }
@@ -45,6 +54,7 @@ void Context::fillColor(const ColorAf& color) {
 void Context::strokePaint(const NVGpaint& paint) {
   nvgStrokePaint(mCtx.get(), paint);
 }
+
 void Context::fillPaint(const NVGpaint& paint) {
   nvgFillPaint(mCtx.get(), paint);
 }
@@ -65,6 +75,13 @@ void Context::lineJoin(int join) {
   nvgLineJoin(mCtx.get(), join);
 }
 
+
+// Transform
+
+void Context::setTransform(const MatrixAffine2f& mtx) {
+  resetTransform();
+  transform(mtx);
+}
 
 void Context::resetTransform() {
   nvgResetTransform(mCtx.get());
@@ -109,24 +126,31 @@ MatrixAffine2f Context::currentTransform() {
 }
 
 
-NVGpaint Context::linearGradient(float sx, float sy, float ex, float ey, NVGcolor icol, NVGcolor ocol) {
+// Paint
+
+NVGpaint Context::linearGradient(float sx, float sy, float ex, float ey,
+                                 NVGcolor icol, NVGcolor ocol) {
   return nvgLinearGradient(mCtx.get(), sx, sy, ex, ey, icol, ocol);
 }
 
-NVGpaint Context::boxGradient(float x, float y, float w, float h, float r, float f, NVGcolor icol, NVGcolor ocol) {
+NVGpaint Context::boxGradient(float x, float y, float w, float h, float r, float f,
+                              NVGcolor icol, NVGcolor ocol) {
   return nvgBoxGradient(mCtx.get(), x, y, w, h, r, f, icol, ocol);
 }
 
-NVGpaint Context::radialGradient(float cx, float cy, float inr, float outr, NVGcolor icol, NVGcolor ocol) {
+NVGpaint Context::radialGradient(float cx, float cy, float inr, float outr,
+                                 NVGcolor icol, NVGcolor ocol) {
   return nvgRadialGradient(mCtx.get(), cx, cy, inr, outr, icol, ocol);
 }
 
-NVGpaint Context::imagePattern(float ox, float oy, float ex, float ey, float angle, int image, int repeat, float alpha) {
+NVGpaint Context::imagePattern(float ox, float oy, float ex, float ey, float angle,
+                               int image, int repeat, float alpha) {
   return nvgImagePattern(mCtx.get(), ox, oy, ex, ey, angle, image, repeat, alpha);
 }
 
 
 // Scissoring
+
 void Context::scissor(float x, float y, float w, float h) {
   nvgScissor(mCtx.get(), x, y, w, h);
 }
@@ -137,6 +161,7 @@ void Context::resetScissor() {
 
 
 // Paths
+
 void Context::beginPath() {
   nvgBeginPath(mCtx.get());
 }
@@ -224,7 +249,9 @@ void Context::polyLine(const PolyLine2f& polyline) {
   }
 }
 
-static void iterateShape2d(const Shape2d& shape, function<void(Path2d::SegmentType, const Vec2f*, const Vec2f*, const Vec2f*)> visit) {
+using Path2dVisitor = function<void(Path2d::SegmentType, const Vec2f*, const Vec2f*, const Vec2f*)>;
+
+static void iterateShape2d(const Shape2d& shape, Path2dVisitor visit) {
   for (auto& contour : shape.getContours()) {
     const Vec2f* p1 = nullptr, *p2 = nullptr, *p3 = &contour.getPoint(0);
 
@@ -251,7 +278,9 @@ static void iterateShape2d(const Shape2d& shape, function<void(Path2d::SegmentTy
 }
 
 void Context::shape2d(const Shape2d& shape) {
-  iterateShape2d(shape, [this](Path2d::SegmentType type, const Vec2f* p1, const Vec2f* p2, const Vec2f* p3) {
+  iterateShape2d(shape, [this](Path2d::SegmentType type, const Vec2f* p1,
+                                                         const Vec2f* p2,
+                                                         const Vec2f* p3) {
     switch (type) {
       case Path2d::MOVETO:  moveTo(*p3); break;
       case Path2d::QUADTO:  quadTo(*p2, *p3); break;
@@ -263,7 +292,6 @@ void Context::shape2d(const Shape2d& shape) {
   });
 }
 
-
 void Context::fill() {
   nvgFill(mCtx.get());
 }
@@ -272,6 +300,8 @@ void Context::stroke() {
   nvgStroke(mCtx.get());
 }
 
+
+// Text
 
 int Context::createFont(const std::string& name, const std::string& filename) {
   return nvgCreateFont(mCtx.get(), name.c_str(), filename.c_str());
@@ -328,6 +358,5 @@ Rectf Context::textBoxBounds(float x, float y, float breakRowWidth, const std::s
   nvgTextBoxBounds(mCtx.get(), x, y, breakRowWidth, string.c_str(), NULL, &bounds.x1);
   return bounds;
 }
-
 
 } // nvg

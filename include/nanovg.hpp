@@ -20,9 +20,11 @@ using ContextPtr = std::shared_ptr<class Context>;
 class Context {
 public:
   Context(std::unique_ptr<NVGcontext, RawContextDeleter>&& ctx)
-  : mCtx{std::move(ctx)} {}
+  : mCtx{std::move(ctx)} {
+  }
 
   void beginFrame(int windowWidth, int windowHeight, float devicePixelRatio);
+  void beginFrame(const ci::Vec2i& windowSize, float devicePixelRatio);
   void endFrame();
 
   // State Handling
@@ -43,6 +45,7 @@ public:
   void lineJoin(int join);
 
   // Transforms
+  void setTransform(const ci::MatrixAffine2f& mtx);
   void resetTransform();
   void transform(const ci::MatrixAffine2f& mtx);
   void translate(float x, float y);
@@ -91,7 +94,6 @@ public:
 
   // Text
   int createFont(const std::string& name, const std::string& filename);
-  // int createFontMem(const char* name, unsigned char* data, int ndata, int freeData);
   int findFont(const std::string& name);
   void fontSize(float size);
   void fontBlur(float blur);
@@ -104,9 +106,6 @@ public:
   void textBox(float x, float y, float breakRowWidth, const std::string& string);
   ci::Rectf textBounds(float x, float y, const std::string& string);
   ci::Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string& string);
-  // int textGlyphPositions(float x, float y, const char* string, const char* end, NVGglyphPosition* positions, int maxPositions);
-  // void textMetrics(float* ascender, float* descender, float* lineh);
-  // int textBreakLines(const std::string& string, const char* end, float breakRowWidth, NVGtextRow* rows, int maxRows);
 
 private:
   std::unique_ptr<NVGcontext, RawContextDeleter> mCtx;
@@ -114,4 +113,4 @@ private:
 
 std::unique_ptr<Context> createContextGLES2(int atlasWidth, int atlasHeight, bool edgeAA);
 
-} // namespace nvg
+} // nvg
