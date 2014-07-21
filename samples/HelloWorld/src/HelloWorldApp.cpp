@@ -10,6 +10,7 @@ using namespace std;
 
 class HelloWorldApp : public AppNative {
 public:
+	void prepareSettings(Settings* settings);
 	void setup();
 	void update();
 	void draw();
@@ -18,6 +19,10 @@ private:
   nvg::ContextPtr mNanoVG;
   PolyLine2f mTriangle;
 };
+
+void HelloWorldApp::prepareSettings(Settings* settings) {
+  settings->enableHighDensityDisplay();
+}
 
 void HelloWorldApp::setup() {
   mNanoVG = nvg::createContextGL2();
