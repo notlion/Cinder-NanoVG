@@ -2,9 +2,9 @@
 <cinder>
 <block
     name="NanoVG"
-    id="SOME.THING.Cinder-NanoVG"
+    id="org.libcinder.Cinder-NanoVG"
     git="https://github.com/notlion/Cinder-NanoVG.git"
-    author="Ryan Alexander"
+    author="Ryan Alexander, Mikko Mononen"
     summary="Vector graphics rendering library with an API modeled after HTML5 canvas API."
     url="https://github.com/notlion/Cinder-NanoVG"
     version="646b0a56cc"
