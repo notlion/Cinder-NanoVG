@@ -10,10 +10,10 @@ using namespace std;
 
 class HelloWorldApp : public AppNative {
 public:
-	void prepareSettings(Settings* settings);
-	void setup();
-	void update();
-	void draw();
+  void prepareSettings(Settings* settings);
+  void setup();
+  void update();
+  void draw();
 
 private:
   nvg::ContextPtr mNanoVG;
@@ -44,7 +44,7 @@ void HelloWorldApp::update() {
 }
 
 void HelloWorldApp::draw() {
-	gl::clear(Color(0, 0, 0));
+  gl::clear(Color(0, 0, 0));
 
   // Store a reference so we can use dot-notation.
   auto& vg = *mNanoVG;
@@ -106,7 +106,7 @@ void HelloWorldApp::draw() {
   vg.fontSize(50);
   vg.fontFace("roboto");
   vg.textAlign(NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
-  vg.textLetterSpacing(-5.0);
+  vg.textLetterSpacing(-4.0);
   vg.fillColor(ColorAf{0.0f, 0.0f, 0.0f});
   vg.text(0, 0, "hello, world");
 
