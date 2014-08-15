@@ -52,7 +52,7 @@ void MultiWindowApp::setup() {
 
 void MultiWindowApp::spawnWindow() {
   auto newWindow = createWindow(Window::Format().size(getWindowSize()));
-	newWindow->setUserData(new WindowData(getNumWindows()));
+  newWindow->setUserData(new WindowData(getNumWindows()));
 }
 
 void MultiWindowApp::update() {
