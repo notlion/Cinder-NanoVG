@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B0150D70-727E-4A9A-9B9D-1DE940D62751</string>
+	<string>68302CDC-16A3-4C3E-B20A-E634DB81FC6E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>HelloWorld</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9A6A9D03-1B30-4C52-83F0-29C1E4E00AE3</key>
-		<string>ssh://bitbucket.org/notlion/cinder-nanovg.git</string>
+		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
+		<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
 		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
 		<string>https://github.com/memononen/nanovg.git</string>
 	</dict>
@@ -19,26 +19,26 @@
 	<string>samples/HelloWorld/xcode/HelloWorld.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9A6A9D03-1B30-4C52-83F0-29C1E4E00AE3</key>
+		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
 		<string>../../../../..</string>
 		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
 		<string>../../../../../deps/nanovg</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/notlion/cinder-nanovg.git</string>
+	<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9A6A9D03-1B30-4C52-83F0-29C1E4E00AE3</string>
+	<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9A6A9D03-1B30-4C52-83F0-29C1E4E00AE3</string>
+			<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
 			<key>IDESourceControlWCCName</key>
-			<string>cinder-nanovg</string>
+			<string>Cinder-NanoVG</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

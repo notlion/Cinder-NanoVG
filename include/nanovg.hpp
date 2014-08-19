@@ -14,13 +14,11 @@
 
 namespace nvg {
 
-using RawContextDeleter = std::function<void(NVGcontext*)>;
-using ContextPtr = std::shared_ptr<class Context>;
-
 class Context {
 public:
-  Context(std::unique_ptr<NVGcontext, RawContextDeleter>&& ctx)
-  : mCtx{std::move(ctx)} {
+  using BackingCtx = std::unique_ptr<NVGcontext, std::function<void(NVGcontext*)>>;
+
+  Context(BackingCtx&& ctx) : mCtx{std::move(ctx)} {
   }
 
   void beginFrame(int windowWidth, int windowHeight, float devicePixelRatio);
@@ -108,9 +106,7 @@ public:
   ci::Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string& string);
 
 private:
-  std::unique_ptr<NVGcontext, RawContextDeleter> mCtx;
+  BackingCtx mCtx;
 };
-
-std::unique_ptr<Context> createContextGLES2(int atlasWidth, int atlasHeight, bool edgeAA);
 
 } // nvg

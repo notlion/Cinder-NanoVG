@@ -10,12 +10,13 @@ using namespace ci::app;
 using namespace std;
 
 struct WindowData {
-  nvg::ContextPtr ctx;
+  shared_ptr<nvg::Context> ctx;
   PolyLine2f polygon;
   uint32_t id;
 
   WindowData(uint32_t id)
-  : ctx{ nvg::createContextGL2() }, id{ id }
+  : ctx{ make_shared<nvg::Context>(nvg::createContextGL2()) },
+    id{ id }
   {
     // Load a font.
     ctx->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());

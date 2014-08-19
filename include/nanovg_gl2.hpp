@@ -7,17 +7,11 @@
 
 namespace nvg {
 
-std::unique_ptr<Context> createContextGL2(bool antiAlias      = true,
-                                          bool stencilStrokes = false) {
-  int flags = antiAlias ? NVG_ANTIALIAS : 0;
-  flags |= stencilStrokes ? NVG_STENCIL_STROKES : 0;
+Context createContextGL2(bool antiAlias = true, bool stencilStrokes = false) {
+  int flags = (antiAlias      ? NVG_ANTIALIAS       : 0) |
+              (stencilStrokes ? NVG_STENCIL_STROKES : 0);
 
-  auto ctx = nvgCreateGL2(flags);
-  auto ptr = std::unique_ptr<NVGcontext, RawContextDeleter>(ctx, [](NVGcontext* ctx) {
-    nvgDeleteGL2(ctx);
-  });
-
-  return std::unique_ptr<Context>(new Context(std::move(ptr)));
+  return { Context::BackingCtx{ nvgCreateGL2(flags), nvgDeleteGL2 } };
 }
   
 } // nvg

@@ -16,7 +16,7 @@ public:
   void draw();
 
 private:
-  nvg::ContextPtr mNanoVG;
+  std::shared_ptr<nvg::Context> mNanoVG;
   PolyLine2f mTriangle;
 };
 
@@ -25,7 +25,11 @@ void HelloWorldApp::prepareSettings(Settings* settings) {
 }
 
 void HelloWorldApp::setup() {
-  mNanoVG = nvg::createContextGL2();
+  // We return a value from nvg::createContextXXX() in order to remain
+  // agnostic to how your app is managing memory. Most of the time you'll want
+  // to either store this value or create a unique/shared_ptr. A unique_ptr
+  // would be more appropriate here, but we're using make_shared for brevity.
+  mNanoVG = std::make_shared<nvg::Context>(nvg::createContextGL2());
 
   // Load a font
   mNanoVG->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
