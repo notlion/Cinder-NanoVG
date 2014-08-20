@@ -1,9 +1,9 @@
 #include "nanovg.hpp"
 
-using namespace std;
-using namespace ci;
+using std::string;
+using std::function;
 
-namespace nvg {
+namespace cinder { namespace nvg {
 
 void Context::beginFrame(int windowWidth, int windowHeight, float devicePixelRatio) {
   nvgBeginFrame(mCtx.get(), windowWidth, windowHeight, devicePixelRatio);
@@ -234,8 +234,16 @@ void Context::ellipse(float cx, float cy, float rx, float ry) {
   nvgEllipse(mCtx.get(), cx, cy, rx, ry);
 }
 
+void Context::ellipse(const Vec2f &center, float rx, float ry) {
+  ellipse(center.x, center.y, rx, ry);
+}
+
 void Context::circle(float cx, float cy, float r) {
   nvgCircle(mCtx.get(), cx, cy, r);
+}
+
+void Context::circle(const Vec2f &center, float radius) {
+  circle(center.x, center.y, radius);
 }
 
 void Context::polyLine(const PolyLine2f& polyline) {
@@ -301,6 +309,14 @@ void Context::stroke() {
 }
 
 
+// SVG
+
+void Context::drawSvg(const svg::Doc &svg) {
+  SvgRenderer renderer(*this);
+  svg.render(renderer);
+}
+
+
 // Text
 
 int Context::createFont(const std::string& name, const std::string& filename) {
@@ -359,4 +375,4 @@ Rectf Context::textBoxBounds(float x, float y, float breakRowWidth, const std::s
   return bounds;
 }
 
-} // nvg
+}} // cinder::nvg

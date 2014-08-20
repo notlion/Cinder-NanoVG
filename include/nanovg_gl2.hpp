@@ -5,7 +5,7 @@
 #define NANOVG_GL2_IMPLEMENTATION
 #include "nanovg_gl.h"
 
-namespace nvg {
+namespace cinder { namespace nvg {
 
 Context createContextGL2(bool antiAlias = true, bool stencilStrokes = false) {
   int flags = (antiAlias      ? NVG_ANTIALIAS       : 0) |
@@ -14,4 +14,4 @@ Context createContextGL2(bool antiAlias = true, bool stencilStrokes = false) {
   return { Context::BackingCtx{ nvgCreateGL2(flags), nvgDeleteGL2 } };
 }
   
-} // nvg
+}} // cinder::nvg

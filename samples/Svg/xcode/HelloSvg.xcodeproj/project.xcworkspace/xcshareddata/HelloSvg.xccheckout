@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6678A31C-051C-45B9-A6E6-34191468FC16</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloSvg</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
+		<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
+		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
+		<string>https://github.com/memononen/nanovg.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>samples/Svg/xcode/HelloSvg.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
+		<string>../../../../..</string>
+		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
+		<string>../../../../../deps/nanovg</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder-NanoVG</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nanovg</string>
+		</dict>
+	</array>
+</dict>
+</plist>
