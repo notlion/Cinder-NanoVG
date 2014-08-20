@@ -1,4 +1,5 @@
 #include "nanovg.hpp"
+#include "SvgRenderer.hpp"
 
 namespace cinder { namespace nvg {
 
