@@ -19,97 +19,224 @@ class Context {
 public:
   using BackingCtx = std::unique_ptr<NVGcontext, std::function<void(NVGcontext*)>>;
 
-  Context(BackingCtx&& ctx) : mCtx{std::move(ctx)} {
+  Context(BackingCtx&& ctx) : mCtx{ std::move(ctx) } {
   }
 
-  void beginFrame(int windowWidth, int windowHeight, float devicePixelRatio);
-  void beginFrame(const Vec2i& windowSize, float devicePixelRatio);
-  void endFrame();
+  inline NVGcontext* get() { return mCtx.get(); }
 
-  // State Handling
-  void save();
-  void restore();
-  void reset();
+  // Frame //
 
-  // Render Styles
-  void strokeColor(const NVGcolor& color);
-  void strokeColor(const ColorAf& color);
-  void strokePaint(const NVGpaint& paint);
-  void fillColor(const NVGcolor& color);
-  void fillColor(const ColorAf& color);
-  void fillPaint(const NVGpaint& paint);
-  void miterLimit(float limit);
-  void strokeWidth(float size);
-  void lineCap(int cap);
-  void lineJoin(int join);
+  inline void beginFrame(int windowWidth, int windowHeight, float devicePixelRatio) {
+    nvgBeginFrame(get(), windowWidth, windowHeight, devicePixelRatio);
+  }
+  inline void beginFrame(const Vec2i& windowSize, float devicePixelRatio) {
+    beginFrame(windowSize.x, windowSize.y, devicePixelRatio);
+  }
+  inline void endFrame() {
+    nvgEndFrame(get());
+  }
 
-  // Transforms
-  void setTransform(const MatrixAffine2f& mtx);
-  void resetTransform();
-  void transform(const MatrixAffine2f& mtx);
-  void translate(float x, float y);
-  void translate(const Vec2f& translation);
-  void rotate(float angle);
-  void skewX(float angle);
-  void skewY(float angle);
-  void scale(float x, float y);
-  void scale(const Vec2f& s);
-  MatrixAffine2f currentTransform();
+  // State Handling //
 
-  // Paints
-  NVGpaint linearGradient(float sx, float sy, float ex, float ey, NVGcolor icol, NVGcolor ocol);
-  NVGpaint boxGradient(float x, float y, float w, float h, float r, float f, NVGcolor icol, NVGcolor ocol);
-  NVGpaint radialGradient(float cx, float cy, float inr, float outr, NVGcolor icol, NVGcolor ocol);
-  NVGpaint imagePattern(float ox, float oy, float ex, float ey, float angle, int image, int repeat, float alpha);
+  inline void save() { nvgSave(get()); }
+  inline void restore() { nvgRestore(get()); }
+  inline void reset() { nvgReset(get()); }
 
-  // Scissoring
-  void scissor(float x, float y, float w, float h);
-  void resetScissor();
+  // Render Styles //
 
-  // Paths
-  void beginPath();
-  void moveTo(float x, float y);
-  void moveTo(const Vec2f& p);
-  void lineTo(float x, float y);
-  void lineTo(const Vec2f& p);
-  void quadTo(float cx, float cy, float x, float y);
-  void quadTo(const Vec2f& p1, const Vec2f& p2);
-  void bezierTo(float c1x, float c1y, float c2x, float c2y, float x, float y);
-  void bezierTo(const Vec2f& p1, const Vec2f& p2, const Vec2f& p3);
-  void arcTo(float x1, float y1, float x2, float y2, float radius);
-  void closePath();
-  void pathWinding(int dir);
-  void arc(float cx, float cy, float r, float a0, float a1, int dir);
-  void rect(float x, float y, float w, float h);
-  void rect(const Rectf& r);
-  void roundedRect(float x, float y, float w, float h, float r);
-  void roundedRect(const Rectf& rect, float r);
-  void ellipse(float cx, float cy, float rx, float ry);
-  void ellipse(const Vec2f& center, float rx, float ry);
-  void circle(float cx, float cy, float r);
-  void circle(const Vec2f& center, float radius);
+  inline void strokeColor(const NVGcolor& color) {
+    nvgStrokeColor(get(), color);
+  }
+  inline void strokeColor(const ColorAf& color) {
+    strokeColor(reinterpret_cast<const NVGcolor&>(color));
+  }
+  inline void strokePaint(const NVGpaint& paint) {
+    nvgStrokePaint(get(), paint);
+  }
+  inline void fillColor(const NVGcolor& color) {
+    nvgFillColor(get(), color);
+  }
+  inline void fillColor(const ColorAf& color) {
+    fillColor(reinterpret_cast<const NVGcolor&>(color));
+  }
+  inline void fillPaint(const NVGpaint& paint) {
+    nvgFillPaint(get(), paint);
+  }
+
+  inline void miterLimit(float limit) { nvgMiterLimit(get(), limit); }
+  inline void strokeWidth(float size) { nvgStrokeWidth(get(), size); }
+  inline void lineCap(int cap) { nvgLineCap(get(), cap); }
+  inline void lineJoin(int join) { nvgLineJoin(get(), join); }
+
+  // Transform //
+
+  inline void resetTransform() {
+    nvgResetTransform(get());
+  }
+  inline void transform(const MatrixAffine2f& mtx) {
+    nvgTransform(get(), mtx[0], mtx[1], mtx[2], mtx[3], mtx[4], mtx[5]);
+  }
+  inline void setTransform(const MatrixAffine2f& mtx) {
+    resetTransform();
+    transform(mtx);
+  }
+  inline void translate(float x, float y) {
+    nvgTranslate(get(), x, y);
+  }
+  inline void translate(const Vec2f& translation) {
+    translate(translation.x, translation.y);
+  }
+  inline void rotate(float angle) { nvgRotate(get(), angle); }
+  inline void skewX(float angle) { nvgSkewX(get(), angle); }
+  inline void skewY(float angle) { nvgSkewY(get(), angle); }
+  inline void scale(float x, float y) { nvgScale(get(), x, y); }
+  inline void scale(const Vec2f& s) { scale(s.x, s.y); }
+
+  MatrixAffine2f currentTransform() {
+    MatrixAffine2f xform;
+    nvgCurrentTransform(mCtx.get(), &xform[0]);
+    return xform;
+  }
+
+  // Paints //
+
+  inline NVGpaint linearGradient(float sx, float sy, float ex, float ey,
+                                 NVGcolor icol, NVGcolor ocol) {
+    return nvgLinearGradient(get(), sx, sy, ex, ey, icol, ocol);
+  }
+  inline NVGpaint boxGradient(float x, float y, float w, float h, float r, float f,
+                              NVGcolor icol, NVGcolor ocol) {
+    return nvgBoxGradient(get(), x, y, w, h, r, f, icol, ocol);
+  }
+  inline NVGpaint radialGradient(float cx, float cy, float inr, float outr,
+                                 NVGcolor icol, NVGcolor ocol) {
+    return nvgRadialGradient(get(), cx, cy, inr, outr, icol, ocol);
+  }
+  inline NVGpaint imagePattern(float ox, float oy, float ex, float ey,
+                               float angle, int image, int repeat, float alpha) {
+    return nvgImagePattern(get(), ox, oy, ex, ey, angle, image, repeat, alpha);
+  }
+
+  // Scissoring //
+
+  inline void scissor(float x, float y, float w, float h) {
+    nvgScissor(get(), x, y, w, h);
+  }
+  inline void resetScissor() {
+    nvgResetScissor(get());
+  }
+
+  // Paths //
+
+  inline void beginPath() { nvgBeginPath(get()); }
+  inline void moveTo(float x, float y) { nvgMoveTo(get(), x, y); }
+  inline void moveTo(const Vec2f& p) { moveTo(p.x, p.y); }
+  inline void lineTo(float x, float y) { nvgLineTo(get(), x, y); }
+  inline void lineTo(const Vec2f& p) { lineTo(p.x, p.y); }
+  inline void quadTo(float cx, float cy, float x, float y) {
+    nvgQuadTo(get(), cx, cy, x, y);
+  }
+  inline void quadTo(const Vec2f& p1, const Vec2f& p2) {
+    quadTo(p1.x, p1.y, p2.x, p2.y);
+  }
+  inline void bezierTo(float c1x, float c1y, float c2x, float c2y, float x, float y) {
+    nvgBezierTo(get(), c1x, c1y, c2x, c2y, x, y);
+  }
+  inline void bezierTo(const Vec2f& p1, const Vec2f& p2, const Vec2f& p3) {
+    bezierTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+  }
+  inline void arcTo(float x1, float y1, float x2, float y2, float radius) {
+    nvgArcTo(get(), x1, y1, x2, y2, radius);
+  }
+  inline void arcTo(const Vec2f& p1, const Vec2f& p2, float radius) {
+    arcTo(p1.x, p1.y, p2.x, p2.y, radius);
+  }
+  inline void closePath() { nvgClosePath(get()); }
+  inline void pathWinding(int dir) { nvgPathWinding(get(), dir); }
+  inline void arc(float cx, float cy, float r, float a0, float a1, int dir) {
+    nvgArc(get(), cx, cy, r, a0, a1, dir);
+  }
+  inline void arc(const Vec2f &center, float r, float a0, float a1, int dir) {
+    arc(center.x, center.y, r, a0, a1, dir);
+  }
+  inline void rect(float x, float y, float w, float h) {
+    nvgRect(get(), x, y, w, h);
+  }
+  inline void rect(const Rectf& r) {
+    rect(r.getX1(), r.getY1(), r.getWidth(), r.getHeight());
+  }
+  inline void roundedRect(float x, float y, float w, float h, float r) {
+    nvgRoundedRect(get(), x, y, w, h, r);
+  }
+  inline void roundedRect(const Rectf& rect, float r) {
+    roundedRect(rect.getX1(), rect.getY1(), rect.getWidth(), rect.getHeight(), r);
+  }
+  inline void ellipse(float cx, float cy, float rx, float ry) {
+    nvgEllipse(get(), cx, cy, rx, ry);
+  }
+  inline void ellipse(const Vec2f& center, float rx, float ry) {
+    ellipse(center.x, center.y, rx, ry);
+  }
+  inline void circle(float cx, float cy, float r) {
+    nvgCircle(get(), cx, cy, r);
+  }
+  inline void circle(const Vec2f& center, float radius) {
+    circle(center.x, center.x, radius);
+  }
+
+  inline void fill() { nvgFill(get()); }
+  inline void stroke() { nvgStroke(get()); }
+
+  // Cinder Types //
+
   void polyLine(const PolyLine2f& polyline);
   void shape2d(const Shape2d& shape);
-  void fill();
-  void stroke();
 
-  // SVG
+  // Cinder SVG //
+
   void drawSvg(const svg::Doc &svg);
 
-  // Text
-  int createFont(const std::string& name, const std::string& filename);
-  int findFont(const std::string& name);
-  void fontSize(float size);
-  void fontBlur(float blur);
-  void textLetterSpacing(float spacing);
-  void textLineHeight(float lineHeight);
-  void textAlign(int align);
-  void fontFaceId(int font);
-  void fontFace(const std::string& font);
-  float text(float x, float y, const std::string& string);
-  void textBox(float x, float y, float breakRowWidth, const std::string& string);
-  Rectf textBounds(float x, float y, const std::string& string);
-  Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string& string);
+  // Text //
+
+  inline int createFont(const std::string& name, const std::string& filename) {
+    return nvgCreateFont(get(), name.c_str(), filename.c_str());
+  }
+  inline int findFont(const std::string& name) {
+    return nvgFindFont(get(), name.c_str());
+  }
+
+  inline void fontSize(float size) { nvgFontSize(get(), size); }
+  inline void fontBlur(float blur) { nvgFontBlur(get(), blur); }
+  inline void fontFaceId(int font) { nvgFontFaceId(get(), font); }
+  inline void fontFace(const std::string& font) { nvgFontFace(get(), font.c_str()); }
+
+  inline void textLetterSpacing(float spacing) {
+    nvgTextLetterSpacing(get(), spacing);
+  }
+  inline void textLineHeight(float lineHeight) {
+    nvgTextLineHeight(get(), lineHeight);
+  }
+  inline void textAlign(int align) {
+    nvgTextAlign(get(), align);
+  }
+
+  inline float text(float x, float y, const std::string& string) {
+    return nvgText(get(), x, y, string.c_str(), NULL);
+  }
+  inline void textBox(float x, float y, float breakRowWidth, const std::string& string) {
+    nvgTextBox(get(), x, y, breakRowWidth, string.c_str(), NULL);
+  }
+
+  inline Rectf textBounds(float x, float y, const std::string& string) {
+    Rectf bounds;
+    nvgTextBounds(get(), x, y, string.c_str(), NULL, &bounds.x1);
+    return bounds;
+  }
+  inline Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string& string) {
+    Rectf bounds;
+    nvgTextBoxBounds(get(), x, y, breakRowWidth, string.c_str(), NULL, &bounds.x1);
+    return bounds;
+  }
 
 private:
   BackingCtx mCtx;

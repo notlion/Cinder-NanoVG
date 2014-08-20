@@ -45,6 +45,7 @@
 		945FA01B197B2D5300B44063 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
 		945FA05F197B2D5300B44063 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
 		945FA0AB197B2E6700B44063 /* nanovg_gl2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl2.hpp; sourceTree = "<group>"; };
+		9499F12319A4610E0080D9E7 /* SvgRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
 		AB404F4821194B83A624A560 /* HelloWorld_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorld_Prefix.pch; sourceTree = "<group>"; };
 		AEE2552C072347A988160B44 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
 		F6B00C1BBE374B86A2DDFC6B /* HelloWorldApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldApp.cpp; path = ../src/HelloWorldApp.cpp; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 			children = (
 				945FA0AB197B2E6700B44063 /* nanovg_gl2.hpp */,
 				945FA01B197B2D5300B44063 /* nanovg.hpp */,
+				9499F12319A4610E0080D9E7 /* SvgRenderer.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";
