@@ -1,7 +1,6 @@
 #pragma once
 
 #include "nanovg.h"
-#include "SvgRenderer.hpp"
 
 #include "cinder/MatrixAffine2.h"
 #include "cinder/Vector.h"

@@ -1,4 +1,5 @@
 #include "nanovg.hpp"
+#include "SvgRenderer.hpp"
 
 using std::string;
 using std::function;
