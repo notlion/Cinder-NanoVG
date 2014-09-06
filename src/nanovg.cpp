@@ -17,11 +17,11 @@ void Context::polyLine(const PolyLine2f& polyline) {
   }
 }
 
-using Path2dVisitor = function<void(Path2d::SegmentType, const Vec2f*, const Vec2f*, const Vec2f*)>;
+using Path2dVisitor = function<void(Path2d::SegmentType, const vec2*, const vec2*, const vec2*)>;
 
 static void iterateShape2d(const Shape2d& shape, Path2dVisitor visit) {
   for (auto& contour : shape.getContours()) {
-    const Vec2f* p1 = nullptr, *p2 = nullptr, *p3 = &contour.getPoint(0);
+    const vec2* p1 = nullptr, *p2 = nullptr, *p3 = &contour.getPoint(0);
 
     visit(Path2d::MOVETO, p1, p2, p3);
 
@@ -46,9 +46,9 @@ static void iterateShape2d(const Shape2d& shape, Path2dVisitor visit) {
 }
 
 void Context::shape2d(const Shape2d& shape) {
-  iterateShape2d(shape, [this](Path2d::SegmentType type, const Vec2f* p1,
-                                                         const Vec2f* p2,
-                                                         const Vec2f* p3) {
+  iterateShape2d(shape, [this](Path2d::SegmentType type, const vec2* p1,
+                                                         const vec2* p2,
+                                                         const vec2* p3) {
     switch (type) {
       case Path2d::MOVETO:  moveTo(*p3); break;
       case Path2d::QUADTO:  quadTo(*p2, *p3); break;

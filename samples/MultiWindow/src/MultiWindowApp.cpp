@@ -1,9 +1,12 @@
 #include "cinder/app/AppNative.h"
+#include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
+
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 #include "cinder/Rand.h"
-#include "nanovg_gl2.hpp"
+
+#include "nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -15,7 +18,7 @@ struct WindowData {
   uint32_t id;
 
   WindowData(uint32_t id)
-  : ctx{ make_shared<nvg::Context>(nvg::createContextGL2()) },
+  : ctx{ make_shared<nvg::Context>(nvg::createContextGL()) },
     id{ id }
   {
     // Load a font.
@@ -86,4 +89,11 @@ void MultiWindowApp::draw() {
   vg.endFrame();
 }
 
-CINDER_APP_NATIVE(MultiWindowApp, RendererGl{RendererGl::AA_NONE})
+// NanoVG requires a stencil buffer in the main framebuffer and performs it's
+// own anti-aliasing by default. We disable opengl's AA and enable stencil here
+// to allow for this.
+CINDER_APP_NATIVE(MultiWindowApp, RendererGl{
+  RendererGl::Options()
+    .antiAliasing(RendererGl::AA_NONE)
+    .stencil()
+})

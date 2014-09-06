@@ -58,7 +58,7 @@ public:
   void popLineJoin() override;
 
   // TODO(ryan): Implement text rendering
-  void pushTextPen(const Vec2f &penPos) override {}
+  void pushTextPen(const vec2 &penPos) override {}
   void popTextPen() override {}
   void pushTextRotation(float rotation) override {}
   void popTextRotation() override {}

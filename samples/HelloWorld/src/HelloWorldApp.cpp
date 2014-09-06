@@ -1,8 +1,11 @@
 #include "cinder/app/AppNative.h"
+#include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
+
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
-#include "nanovg_gl2.hpp"
+
+#include "nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -29,7 +32,7 @@ void HelloWorldApp::setup() {
   // agnostic to how your app is managing memory. Most of the time you'll want
   // to either store this value or create a unique/shared_ptr. A unique_ptr
   // would be more appropriate here, but we're using make_shared for brevity.
-  mNanoVG = std::make_shared<nvg::Context>(nvg::createContextGL2());
+  mNanoVG = std::make_shared<nvg::Context>(nvg::createContextGL());
 
   // Load a font
   mNanoVG->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
@@ -117,4 +120,11 @@ void HelloWorldApp::draw() {
   vg.endFrame();
 }
 
-CINDER_APP_NATIVE(HelloWorldApp, RendererGl{RendererGl::AA_NONE})
+// NanoVG requires a stencil buffer in the main framebuffer and performs it's
+// own anti-aliasing by default. We disable opengl's AA and enable stencil here
+// to allow for this.
+CINDER_APP_NATIVE(HelloWorldApp, RendererGl{
+  RendererGl::Options()
+    .antiAliasing(RendererGl::AA_NONE)
+    .stencil()
+})

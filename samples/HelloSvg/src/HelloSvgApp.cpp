@@ -1,8 +1,11 @@
 #include "cinder/app/AppNative.h"
+#include "cinder/app/RendererGl.h"
+
 #include "cinder/gl/gl.h"
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
-#include "nanovg_gl2.hpp"
+
+#include "nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -24,7 +27,7 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 }
 
 void HelloSvgApp::setup() {
-  mNanoVG = make_shared<nvg::Context>(nvg::createContextGL2());
+  mNanoVG = make_shared<nvg::Context>(nvg::createContextGL());
   mDoc = svg::Doc::create(getAssetPath("tiger.svg"));
 }
 
@@ -32,17 +35,25 @@ void HelloSvgApp::update() {
 }
 
 void HelloSvgApp::draw() {
-  gl::clear(Color(0, 0, 0));
-  glClear(GL_STENCIL_BUFFER_BIT);
+  gl::clear(Color{0, 0, 0});
+  gl::clear(GL_STENCIL_BUFFER_BIT);
 
   auto time = getElapsedSeconds();
 
   mNanoVG->beginFrame(getWindowSize(), getWindowContentScale());
   mNanoVG->translate(getWindowCenter());
-  mNanoVG->rotate(time);
-  mNanoVG->scale(Vec2f::one() * lmap<float>(sinf(time), -1, 1, 0.5, 5.0f));
+  mNanoVG->scale(vec2{1} * lmap<float>(sinf(time * 2), -1, 1, 0.5, 2.0f));
+  mNanoVG->rotate(time * -0.5);
+  mNanoVG->translate(vec2{1} * -100.0f);
   mNanoVG->drawSvg(*mDoc);
   mNanoVG->endFrame();
 }
 
-CINDER_APP_NATIVE(HelloSvgApp, RendererGl{RendererGl::AA_NONE})
+// NanoVG requires a stencil buffer in the main framebuffer and performs it's
+// own anti-aliasing by default. We disable opengl's AA and enable stencil here
+// to allow for this.
+CINDER_APP_NATIVE(HelloSvgApp, RendererGl{
+  RendererGl::Options()
+    .antiAliasing(RendererGl::AA_NONE)
+    .stencil()
+})

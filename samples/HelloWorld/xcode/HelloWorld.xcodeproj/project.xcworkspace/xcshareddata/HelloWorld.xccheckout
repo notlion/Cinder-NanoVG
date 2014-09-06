@@ -10,33 +10,45 @@
 	<string>HelloWorld</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
-		<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
-		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
+		<key>5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F</key>
 		<string>https://github.com/memononen/nanovg.git</string>
+		<key>A0FEC191CD75927E63F65C3C49377FD38F94636F</key>
+		<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
+		<key>AD4B458D0D225ED63FAE0155615993B7D3ECE020</key>
+		<string>https://github.com/cinder/Cinder.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>samples/HelloWorld/xcode/HelloWorld.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</key>
-		<string>../../../../..</string>
-		<key>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</key>
+		<key>5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F</key>
 		<string>../../../../../deps/nanovg</string>
+		<key>A0FEC191CD75927E63F65C3C49377FD38F94636F</key>
+		<string>../../../../..</string>
+		<key>AD4B458D0D225ED63FAE0155615993B7D3ECE020</key>
+		<string>../../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/notlion/Cinder-NanoVG.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
+	<string>A0FEC191CD75927E63F65C3C49377FD38F94636F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>157CA8C7-6360-4A82-B83E-2A1A22F4D5AF</string>
+			<string>AD4B458D0D225ED63FAE0155615993B7D3ECE020</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A0FEC191CD75927E63F65C3C49377FD38F94636F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Cinder-NanoVG</string>
 		</dict>
@@ -44,7 +56,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BA0A9FD2-AD09-4553-A487-1519FF5B7BD6</string>
+			<string>5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>nanovg</string>
 		</dict>

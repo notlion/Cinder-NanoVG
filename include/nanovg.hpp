@@ -29,7 +29,7 @@ public:
   inline void beginFrame(int windowWidth, int windowHeight, float devicePixelRatio) {
     nvgBeginFrame(get(), windowWidth, windowHeight, devicePixelRatio);
   }
-  inline void beginFrame(const Vec2i& windowSize, float devicePixelRatio) {
+  inline void beginFrame(const ivec2& windowSize, float devicePixelRatio) {
     beginFrame(windowSize.x, windowSize.y, devicePixelRatio);
   }
   inline void endFrame() {
@@ -83,14 +83,14 @@ public:
   inline void translate(float x, float y) {
     nvgTranslate(get(), x, y);
   }
-  inline void translate(const Vec2f& translation) {
+  inline void translate(const vec2& translation) {
     translate(translation.x, translation.y);
   }
   inline void rotate(float angle) { nvgRotate(get(), angle); }
   inline void skewX(float angle) { nvgSkewX(get(), angle); }
   inline void skewY(float angle) { nvgSkewY(get(), angle); }
   inline void scale(float x, float y) { nvgScale(get(), x, y); }
-  inline void scale(const Vec2f& s) { scale(s.x, s.y); }
+  inline void scale(const vec2& s) { scale(s.x, s.y); }
 
   MatrixAffine2f currentTransform() {
     MatrixAffine2f xform;
@@ -130,25 +130,25 @@ public:
 
   inline void beginPath() { nvgBeginPath(get()); }
   inline void moveTo(float x, float y) { nvgMoveTo(get(), x, y); }
-  inline void moveTo(const Vec2f& p) { moveTo(p.x, p.y); }
+  inline void moveTo(const vec2& p) { moveTo(p.x, p.y); }
   inline void lineTo(float x, float y) { nvgLineTo(get(), x, y); }
-  inline void lineTo(const Vec2f& p) { lineTo(p.x, p.y); }
+  inline void lineTo(const vec2& p) { lineTo(p.x, p.y); }
   inline void quadTo(float cx, float cy, float x, float y) {
     nvgQuadTo(get(), cx, cy, x, y);
   }
-  inline void quadTo(const Vec2f& p1, const Vec2f& p2) {
+  inline void quadTo(const vec2& p1, const vec2& p2) {
     quadTo(p1.x, p1.y, p2.x, p2.y);
   }
   inline void bezierTo(float c1x, float c1y, float c2x, float c2y, float x, float y) {
     nvgBezierTo(get(), c1x, c1y, c2x, c2y, x, y);
   }
-  inline void bezierTo(const Vec2f& p1, const Vec2f& p2, const Vec2f& p3) {
+  inline void bezierTo(const vec2& p1, const vec2& p2, const vec2& p3) {
     bezierTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
   }
   inline void arcTo(float x1, float y1, float x2, float y2, float radius) {
     nvgArcTo(get(), x1, y1, x2, y2, radius);
   }
-  inline void arcTo(const Vec2f& p1, const Vec2f& p2, float radius) {
+  inline void arcTo(const vec2& p1, const vec2& p2, float radius) {
     arcTo(p1.x, p1.y, p2.x, p2.y, radius);
   }
   inline void closePath() { nvgClosePath(get()); }
@@ -156,7 +156,7 @@ public:
   inline void arc(float cx, float cy, float r, float a0, float a1, int dir) {
     nvgArc(get(), cx, cy, r, a0, a1, dir);
   }
-  inline void arc(const Vec2f &center, float r, float a0, float a1, int dir) {
+  inline void arc(const vec2 &center, float r, float a0, float a1, int dir) {
     arc(center.x, center.y, r, a0, a1, dir);
   }
   inline void rect(float x, float y, float w, float h) {
@@ -174,13 +174,13 @@ public:
   inline void ellipse(float cx, float cy, float rx, float ry) {
     nvgEllipse(get(), cx, cy, rx, ry);
   }
-  inline void ellipse(const Vec2f& center, float rx, float ry) {
+  inline void ellipse(const vec2& center, float rx, float ry) {
     ellipse(center.x, center.y, rx, ry);
   }
   inline void circle(float cx, float cy, float r) {
     nvgCircle(get(), cx, cy, r);
   }
-  inline void circle(const Vec2f& center, float radius) {
+  inline void circle(const vec2& center, float radius) {
     circle(center.x, center.x, radius);
   }
 
