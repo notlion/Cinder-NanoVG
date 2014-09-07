@@ -242,4 +242,6 @@ private:
   BackingCtx mCtx;
 };
 
+Context createContext(bool antiAlias = true, bool stencilStrokes = false);
+
 }} // cinder::nvg

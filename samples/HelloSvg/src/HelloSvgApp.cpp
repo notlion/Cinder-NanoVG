@@ -5,7 +5,7 @@
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 
-#include "nanovg_gl.hpp"
+#include "nanovg.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -27,7 +27,7 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 }
 
 void HelloSvgApp::setup() {
-  mNanoVG = make_shared<nvg::Context>(nvg::createContextGL());
+  mNanoVG = make_shared<nvg::Context>(nvg::createContext());
   mDoc = svg::Doc::create(getAssetPath("tiger.svg"));
 }
 

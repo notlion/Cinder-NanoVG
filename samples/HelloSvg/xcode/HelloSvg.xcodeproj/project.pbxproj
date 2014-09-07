@@ -48,7 +48,6 @@
 		945FA017197B2D5300B44063 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		945FA01B197B2D5300B44063 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
 		945FA05F197B2D5300B44063 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
-		945FA0AB197B2E6700B44063 /* nanovg_gl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl.hpp; sourceTree = "<group>"; };
 		9499F12119A442F00080D9E7 /* SvgRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
 		94E2A1FB19BBBE5B00D9C5BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		94E2A1FD19BBC35200D9C5BC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -212,7 +211,6 @@
 		945FA018197B2D5300B44063 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				945FA0AB197B2E6700B44063 /* nanovg_gl.hpp */,
 				945FA01B197B2D5300B44063 /* nanovg.hpp */,
 				9499F12119A442F00080D9E7 /* SvgRenderer.hpp */,
 			);

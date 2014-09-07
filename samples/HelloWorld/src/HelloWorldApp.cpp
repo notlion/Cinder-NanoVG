@@ -5,7 +5,7 @@
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 
-#include "nanovg_gl.hpp"
+#include "nanovg.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -32,7 +32,7 @@ void HelloWorldApp::setup() {
   // agnostic to how your app is managing memory. Most of the time you'll want
   // to either store this value or create a unique/shared_ptr. A unique_ptr
   // would be more appropriate here, but we're using make_shared for brevity.
-  mNanoVG = std::make_shared<nvg::Context>(nvg::createContextGL());
+  mNanoVG = std::make_shared<nvg::Context>(nvg::createContext());
 
   // Load a font
   mNanoVG->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
