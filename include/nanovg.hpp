@@ -112,11 +112,7 @@ public:
                                  NVGcolor icol, NVGcolor ocol) {
     return nvgRadialGradient(get(), cx, cy, inr, outr, icol, ocol);
   }
-  inline NVGpaint imagePattern(float ox, float oy, float ex, float ey,
-                               float angle, int image, int repeat, float alpha) {
-    return nvgImagePattern(get(), ox, oy, ex, ey, angle, image, repeat, alpha);
-  }
-
+  
   // Scissoring //
 
   inline void scissor(float x, float y, float w, float h) {

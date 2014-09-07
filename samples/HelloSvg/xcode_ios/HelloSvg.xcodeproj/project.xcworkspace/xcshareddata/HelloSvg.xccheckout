@@ -22,11 +22,11 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F</key>
-		<string>../../../../..deps/nanovg/</string>
+		<string>../../../../..deps/nanovg</string>
 		<key>A0FEC191CD75927E63F65C3C49377FD38F94636F</key>
 		<string>../../../../..</string>
 		<key>AD4B458D0D225ED63FAE0155615993B7D3ECE020</key>
-		<string>../../../../../../..</string>
+		<string>../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:notlion/Cinder-NanoVG.git</string>
@@ -42,7 +42,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>AD4B458D0D225ED63FAE0155615993B7D3ECE020</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
