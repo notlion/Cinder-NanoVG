@@ -7,7 +7,7 @@
   author="Ryan Alexander, Mikko Mononen"
   summary="Vector graphics rendering library with an API modeled after HTML5 canvas API."
   url="https://github.com/notlion/Cinder-NanoVG"
-  version="646b0a56cc"
+  version="0.0.0"
   libraryUrl="https://github.com/memononen/nanovg"
   >
   <supports os="macosx" />
@@ -16,6 +16,5 @@
   <sourcePattern>deps/nanovg/src/*.c</sourcePattern>
   <headerPattern>include/*.hpp</headerPattern>
   <sourcePattern>src/*.cpp</sourcePattern>
-  <copyExclude>samples</copyExclude>
 </block>
 </cinder>
