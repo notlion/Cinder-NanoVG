@@ -48,19 +48,17 @@ public:
 
 class ShapeProxy {
   gl::TextureRef mTexture;
-  vec2 mOffset;
+  Rectf mBounds;
   shared_ptr<Shape> mShape;
 
 public:
   ShapeProxy(nvg::Context& vg, shared_ptr<Shape> shape) : mShape{ shape } {
-    auto bb = mShape->getBounds();
+    mBounds = mShape->getBounds();
 
     // Grow the bounds a little to preserve nice anti-aliasing at the edges.
-    bb.inflate(vec2(2));
+    mBounds.inflate(vec2(2));
 
-    mOffset = bb.getUpperLeft();
-
-    auto fboSize = bb.getSize() * getWindow()->getContentScale();
+    auto fboSize = mBounds.getSize() * getWindow()->getContentScale();
     auto fbo = gl::Fbo::create(fboSize.x, fboSize.y, gl::Fbo::Format().stencilBuffer());
     gl::ScopedFramebuffer fboScp(fbo);
 
@@ -68,8 +66,8 @@ public:
     gl::clear(ColorAf::zero());
     gl::clear(GL_STENCIL_BUFFER_BIT);
 
-    vg.beginFrame(bb.getWidth(), bb.getHeight(), getWindow()->getContentScale());
-    vg.translate(-mOffset);
+    vg.beginFrame(mBounds.getSize(), getWindow()->getContentScale());
+    vg.translate(-mBounds.getUpperLeft());
     mShape->draw(vg);
     vg.endFrame();
 
@@ -78,8 +76,7 @@ public:
 
   void draw() {
     gl::pushModelMatrix();
-    gl::translate(mOffset);
-    gl::draw(mTexture);
+    gl::draw(mTexture, mBounds);
     gl::popModelMatrix();
   }
 
