@@ -6,7 +6,7 @@
 #include "cinder/PolyLine.h"
 #include "cinder/Rand.h"
 
-#include "nanovg_gl.hpp"
+#include "nanovg.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,7 +18,7 @@ struct WindowData {
   uint32_t id;
 
   WindowData(uint32_t id)
-  : ctx{ make_shared<nvg::Context>(nvg::createContextGL()) },
+  : ctx{ make_shared<nvg::Context>(nvg::createContext()) },
     id{ id }
   {
     // Load a font.
