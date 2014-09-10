@@ -19,8 +19,7 @@ class Context {
 public:
   using BackingCtx = std::unique_ptr<NVGcontext, std::function<void(NVGcontext*)>>;
 
-  Context(BackingCtx&& ctx) : mCtx{ std::move(ctx) } {
-  }
+  Context(BackingCtx&& ctx);
 
   inline NVGcontext* get() { return mCtx.get(); }
 
@@ -186,6 +185,7 @@ public:
   // Cinder Types //
 
   void polyLine(const PolyLine2f& polyline);
+  void path2d(const Path2d& path);
   void shape2d(const Shape2d& shape);
 
   // Cinder SVG //
@@ -235,6 +235,8 @@ public:
   }
 
 private:
+  void path2dSegment(Path2d::SegmentType, const vec2 *p1, const vec2 *p2, const vec2 *p3);
+
   BackingCtx mCtx;
 };
 

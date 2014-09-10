@@ -26,6 +26,9 @@ Context createContext(bool antiAlias, bool stencilStrokes) {
 #endif
 }
 
+Context::Context(BackingCtx&& ctx) : mCtx{ std::move(ctx) } {
+}
+
 void Context::polyLine(const PolyLine2f& polyline) {
   auto& pts = polyline.getPoints();
   if (pts.size() >= 2) {
@@ -37,47 +40,47 @@ void Context::polyLine(const PolyLine2f& polyline) {
   }
 }
 
-using Path2dVisitor = function<void(Path2d::SegmentType, const vec2*, const vec2*, const vec2*)>;
-
-static void iterateShape2d(const Shape2d& shape, Path2dVisitor visit) {
-  for (auto& contour : shape.getContours()) {
-    const vec2* p1 = nullptr, *p2 = nullptr, *p3 = &contour.getPoint(0);
-
-    visit(Path2d::MOVETO, p1, p2, p3);
-
-    size_t i = 1;
-    for (auto& seg : contour.getSegments()) {
-      if(seg == Path2d::CLOSE) {
-        p1 = p2;
-        p2 = p3;
-        p3 = &contour.getPoint(0);
-      }
-      else {
-        for (size_t ni = i + Path2d::sSegmentTypePointCounts[seg]; i < ni; ++i) {
-          p1 = p2;
-          p2 = p3;
-          p3 = &contour.getPoint(i);
-        }
-      }
-
-      visit(seg, p1, p2, p3);
-    }
+void Context::path2dSegment(Path2d::SegmentType type, const vec2 *p1,
+                                                      const vec2 *p2,
+                                                      const vec2 *p3) {
+  switch (type) {
+    case Path2d::MOVETO:  moveTo(*p3); break;
+    case Path2d::QUADTO:  quadTo(*p2, *p3); break;
+    case Path2d::CUBICTO: bezierTo(*p1, *p2, *p3); break;
+    case Path2d::LINETO:
+    case Path2d::CLOSE:
+      lineTo(*p3); break;
   }
 }
 
-void Context::shape2d(const Shape2d& shape) {
-  iterateShape2d(shape, [this](Path2d::SegmentType type, const vec2* p1,
-                                                         const vec2* p2,
-                                                         const vec2* p3) {
-    switch (type) {
-      case Path2d::MOVETO:  moveTo(*p3); break;
-      case Path2d::QUADTO:  quadTo(*p2, *p3); break;
-      case Path2d::CUBICTO: bezierTo(*p1, *p2, *p3); break;
-      case Path2d::LINETO:
-      case Path2d::CLOSE:
-        lineTo(*p3); break;
+void Context::path2d(const cinder::Path2d &path) {
+  const vec2* p1 = nullptr, *p2 = nullptr, *p3 = &path.getPoint(0);
+
+  path2dSegment(Path2d::MOVETO, p1, p2, p3);
+
+  size_t i = 1;
+  for (auto& seg : path.getSegments()) {
+    if(seg == Path2d::CLOSE) {
+      p1 = p2;
+      p2 = p3;
+      p3 = &path.getPoint(0);
     }
-  });
+    else {
+      for (size_t ni = i + Path2d::sSegmentTypePointCounts[seg]; i < ni; ++i) {
+        p1 = p2;
+        p2 = p3;
+        p3 = &path.getPoint(i);
+      }
+    }
+
+    path2dSegment(seg, p1, p2, p3);
+  }
+}
+
+void Context::shape2d(const Shape2d &shape) {
+  for (auto& contour : shape.getContours()) {
+    path2d(contour);
+  }
 }
 
 void Context::drawSvg(const svg::Doc &svg) {
