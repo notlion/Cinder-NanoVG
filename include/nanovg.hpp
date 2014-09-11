@@ -216,22 +216,42 @@ public:
     nvgTextAlign(get(), align);
   }
 
-  inline float text(float x, float y, const std::string& string) {
-    return nvgText(get(), x, y, string.c_str(), NULL);
+  inline float text(float x, float y, const std::string& str) {
+    return nvgText(get(), x, y, str.c_str(), NULL);
   }
-  inline void textBox(float x, float y, float breakRowWidth, const std::string& string) {
-    nvgTextBox(get(), x, y, breakRowWidth, string.c_str(), NULL);
+  inline float text(const vec2 &p, const std::string& str) {
+    return text(p.x, p.y, str);
   }
 
-  inline Rectf textBounds(float x, float y, const std::string& string) {
+  inline void textBox(float x, float y, float breakRowWidth, const std::string& str) {
+    nvgTextBox(get(), x, y, breakRowWidth, str.c_str(), NULL);
+  }
+  inline void textBox(const vec2 &p, float breakRowWidth, const std::string& str) {
+    textBox(p.x, p.y, breakRowWidth, str);
+  }
+  inline void textBox(const Rectf &rect, const std::string& str) {
+    textBox(rect.getX1(), rect.getY1(), rect.getWidth(), str);
+  }
+
+  inline Rectf textBounds(float x, float y, const std::string& str) {
     Rectf bounds;
-    nvgTextBounds(get(), x, y, string.c_str(), NULL, &bounds.x1);
+    nvgTextBounds(get(), x, y, str.c_str(), NULL, &bounds.x1);
     return bounds;
   }
-  inline Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string& string) {
+  inline Rectf textBounds(const vec2 &p, const std::string& str) {
+    return textBounds(p.x, p.y, str);
+  }
+
+  inline Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string &str) {
     Rectf bounds;
-    nvgTextBoxBounds(get(), x, y, breakRowWidth, string.c_str(), NULL, &bounds.x1);
+    nvgTextBoxBounds(get(), x, y, breakRowWidth, str.c_str(), NULL, &bounds.x1);
     return bounds;
+  }
+  inline Rectf textBoxBounds(const vec2 &p, float breakRowWidth, const std::string &str) {
+    return textBoxBounds(p.x, p.y, breakRowWidth, str);
+  }
+  inline Rectf textBoxBounds(const Rectf &rect, const std::string &str) {
+    return textBoxBounds(rect.getX1(), rect.getY1(), rect.getWidth(), str);
   }
 
 private:
