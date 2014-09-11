@@ -99,12 +99,11 @@ public:
   void setup() override;
 	void update() override;
 	void draw() override;
-  void mouseDown(MouseEvent event) override;
-  void keyDown(KeyEvent event) override;
 };
 
 void RenderToTextureApp::prepareSettings(Settings* settings) {
   settings->enableHighDensityDisplay();
+  settings->enableMultiTouch();
 }
 
 void RenderToTextureApp::generateShapes() {
@@ -123,7 +122,7 @@ void RenderToTextureApp::generateShapes() {
   };
 
   // Fill our array with shapes.
-  mShapes.resize(8);
+  mShapes.resize(32);
   generate(mShapes.begin(), mShapes.end(), [&] {
     float radius = randFloat(100, 300);
     int numPoints = randInt(4, 12);
@@ -144,6 +143,15 @@ void RenderToTextureApp::generateShapes() {
 void RenderToTextureApp::setup() {
   Rand::randomize();
   mCtx = make_shared<nvg::Context>(nvg::createContext());
+  mCtx->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
+
+  getWindow()->getSignalTouchesBegan().connect([&](const TouchEvent event) {
+    generateShapes();
+  });
+  getWindow()->getSignalMouseDown().connect([&](const MouseEvent event) {
+    generateShapes();
+  });
+
   generateShapes();
 }
 
@@ -157,9 +165,12 @@ void RenderToTextureApp::draw() {
   gl::clear(Colorf{0, 0, 0});
   gl::clear(GL_STENCIL_BUFFER_BIT);
 
-  auto time = getElapsedSeconds();
+  auto& vg = *mCtx;
 
-  if (mRenderProxies) {
+  auto time = getElapsedSeconds();
+  bool showProxies = fmod(getElapsedSeconds(), 10.0) < 5.0;
+
+  if (showProxies) { // Switch every 3 seconds.
     gl::setMatricesWindow(getWindowSize());
     gl::ScopedGlslProg shaderScp(gl::getStockShader(gl::ShaderDef().color()));
     for (auto& proxy : mProxies) {
@@ -170,7 +181,6 @@ void RenderToTextureApp::draw() {
     }
   }
   else {
-    auto& vg = *mCtx;
     vg.beginFrame(getWindowSize(), getWindowContentScale());
     for (auto& shape : mShapes) {
       vg.save();
@@ -181,14 +191,16 @@ void RenderToTextureApp::draw() {
     }
     vg.endFrame();
   }
-}
 
-void RenderToTextureApp::mouseDown(MouseEvent event) {
-  mRenderProxies = !mRenderProxies;
-}
-
-void RenderToTextureApp::keyDown(KeyEvent event) {
-  generateShapes();
+  string mode = showProxies ? "Texture Proxies" : "NanoVG";
+  vg.beginFrame(getWindowSize(), getWindowContentScale());
+  vg.translate(10, getWindowHeight() - 10);
+  vg.fontFace("roboto");
+  vg.fontSize(24);
+  vg.fillColor(Colorf::white());
+  vg.text(vec2(), "Fps: " + toString(getAverageFps()));
+  vg.text(vec2(0, -20), "Mode: " + mode);
+  vg.endFrame();
 }
 
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
