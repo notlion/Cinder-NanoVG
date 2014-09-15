@@ -27,7 +27,7 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 }
 
 void HelloSvgApp::setup() {
-  mNanoVG = make_shared<nvg::Context>(nvg::createContext());
+  mNanoVG = make_shared<nvg::Context>(nvg::Context::create());
   mDoc = svg::Doc::create(getAssetPath("tiger.svg"));
 }
 

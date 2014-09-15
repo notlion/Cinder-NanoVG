@@ -142,7 +142,7 @@ void RenderToTextureApp::generateShapes() {
 
 void RenderToTextureApp::setup() {
   Rand::randomize();
-  mCtx = make_shared<nvg::Context>(nvg::createContext());
+  mCtx = make_shared<nvg::Context>(nvg::Context::create());
   mCtx->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
 
   getWindow()->getSignalTouchesBegan().connect([&](const TouchEvent event) {

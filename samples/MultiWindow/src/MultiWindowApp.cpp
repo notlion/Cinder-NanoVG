@@ -18,7 +18,7 @@ struct WindowData {
   uint32_t id;
 
   WindowData(uint32_t id)
-  : ctx{ make_shared<nvg::Context>(nvg::createContext()) },
+  : ctx{ make_shared<nvg::Context>(nvg::Context::create()) },
     id{ id }
   {
     // Load a font.

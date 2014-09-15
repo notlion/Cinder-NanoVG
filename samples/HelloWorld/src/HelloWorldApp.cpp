@@ -28,11 +28,11 @@ void HelloWorldApp::prepareSettings(Settings* settings) {
 }
 
 void HelloWorldApp::setup() {
-  // We return a value from nvg::createContextXXX() in order to remain
+  // We return a value from nvg::Context::create() in order to remain
   // agnostic to how your app is managing memory. Most of the time you'll want
   // to either store this value or create a unique/shared_ptr. A unique_ptr
   // would be more appropriate here, but we're using make_shared for brevity.
-  mNanoVG = std::make_shared<nvg::Context>(nvg::createContext());
+  mNanoVG = std::make_shared<nvg::Context>(nvg::Context::create());
 
   // Load a font
   mNanoVG->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());

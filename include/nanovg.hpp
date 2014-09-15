@@ -21,6 +21,8 @@ public:
 
   Context(BackingCtx&& ctx);
 
+  static Context create(bool antiAlias = true, bool stencilStrokes = false);
+
   inline NVGcontext* get() { return mCtx.get(); }
 
   // Frame //
@@ -259,7 +261,5 @@ private:
 
   BackingCtx mCtx;
 };
-
-Context createContext(bool antiAlias = true, bool stencilStrokes = false);
 
 }} // cinder::nvg

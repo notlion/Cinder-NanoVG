@@ -15,7 +15,7 @@ using std::function;
 
 namespace cinder { namespace nvg {
 
-Context createContext(bool antiAlias, bool stencilStrokes) {
+Context Context::create(bool antiAlias, bool stencilStrokes) {
   int flags = (antiAlias      ? NVG_ANTIALIAS       : 0) |
               (stencilStrokes ? NVG_STENCIL_STROKES : 0);
 
