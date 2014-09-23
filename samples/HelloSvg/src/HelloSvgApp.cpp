@@ -28,7 +28,7 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 
 void HelloSvgApp::setup() {
   mNanoVG = make_shared<nvg::Context>(nvg::Context::create());
-  mDoc = svg::Doc::create(getAssetPath("tiger.svg"));
+  mDoc = svg::Doc::create(loadAsset("rainbow_dash.svg"));
 }
 
 void HelloSvgApp::update() {
@@ -42,18 +42,16 @@ void HelloSvgApp::draw() {
 
   mNanoVG->beginFrame(getWindowSize(), getWindowContentScale());
   mNanoVG->translate(getWindowCenter());
-  mNanoVG->scale(vec2{1} * lmap<float>(sinf(time * 2), -1, 1, 0.5, 2.0f));
-  mNanoVG->rotate(time * -0.5);
-  mNanoVG->translate(vec2{1} * -100.0f);
-  mNanoVG->drawSvg(*mDoc);
+  mNanoVG->scale(vec2(lmap<float>(sinf(time * 2), -1, 1, 1, 2)));
+  mNanoVG->rotate(time * 0.5);
+  mNanoVG->translate(-mDoc->getBounds().getCenter());
+  mNanoVG->draw(*mDoc);
   mNanoVG->endFrame();
 }
 
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
 // own anti-aliasing by default. We disable opengl's AA and enable stencil here
 // to allow for this.
-CINDER_APP_NATIVE(HelloSvgApp, RendererGl{
-  RendererGl::Options()
-    .antiAliasing(RendererGl::AA_NONE)
-    .stencil()
-})
+CINDER_APP_NATIVE(HelloSvgApp, RendererGl(
+  RendererGl::Options().antiAliasing(RendererGl::AA_NONE).stencil()
+))

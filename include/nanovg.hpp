@@ -101,17 +101,25 @@ public:
 
   // Paints //
 
-  inline NVGpaint linearGradient(float sx, float sy, float ex, float ey,
-                                 NVGcolor icol, NVGcolor ocol) {
-    return nvgLinearGradient(get(), sx, sy, ex, ey, icol, ocol);
+  inline NVGpaint linearGradient(const vec2 &start, const vec2 &end,
+                                 const ColorAf &startColor, const ColorAf &endColor) {
+    return nvgLinearGradient(get(), start.x, start.y, end.x, end.y,
+                             reinterpret_cast<const NVGcolor&>(startColor),
+                             reinterpret_cast<const NVGcolor&>(endColor));
   }
-  inline NVGpaint boxGradient(float x, float y, float w, float h, float r, float f,
-                              NVGcolor icol, NVGcolor ocol) {
-    return nvgBoxGradient(get(), x, y, w, h, r, f, icol, ocol);
+  inline NVGpaint boxGradient(const Rectf &bounds, float r, float f,
+                              const ColorAf &startColor, const ColorAf &endColor) {
+    return nvgBoxGradient(get(), bounds.getX1(), bounds.getY1(),
+                          bounds.getWidth(), bounds.getWidth(),
+                          r, f,
+                          reinterpret_cast<const NVGcolor&>(startColor),
+                          reinterpret_cast<const NVGcolor&>(endColor));
   }
-  inline NVGpaint radialGradient(float cx, float cy, float inr, float outr,
-                                 NVGcolor icol, NVGcolor ocol) {
-    return nvgRadialGradient(get(), cx, cy, inr, outr, icol, ocol);
+  inline NVGpaint radialGradient(const vec2 &center, float innerRad, float outerRad,
+                                 const ColorAf &innerColor, const ColorAf &outerColor) {
+    return nvgRadialGradient(get(), center.x, center.y, innerRad, outerRad,
+                             reinterpret_cast<const NVGcolor&>(innerColor),
+                             reinterpret_cast<const NVGcolor&>(outerColor));
   }
   
   // Scissoring //
@@ -192,7 +200,7 @@ public:
 
   // Cinder SVG //
 
-  void drawSvg(const svg::Doc &svg);
+  void draw(const svg::Doc &svg);
 
   // Text //
 

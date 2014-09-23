@@ -83,7 +83,7 @@ void Context::shape2d(const Shape2d &shape) {
   }
 }
 
-void Context::drawSvg(const svg::Doc &svg) {
+void Context::draw(const svg::Doc &svg) {
   SvgRenderer renderer(*this);
   svg.render(renderer);
 }
