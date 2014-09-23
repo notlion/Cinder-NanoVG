@@ -176,7 +176,7 @@ void RenderToTextureApp::draw() {
     for (auto& proxy : mProxies) {
       gl::ScopedModelMatrix modelScp;
       gl::translate(proxy->getPosition());
-      gl::multModelMatrix(mat4(rotate(time, dvec3(0, 0, 1))));
+      gl::rotate(time, vec3(0, 0, 1));
       proxy->draw();
     }
   }
