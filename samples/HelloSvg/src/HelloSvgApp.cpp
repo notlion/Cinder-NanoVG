@@ -3,7 +3,6 @@
 
 #include "cinder/gl/gl.h"
 #include "cinder/Color.h"
-#include "cinder/PolyLine.h"
 
 #include "nanovg.hpp"
 
@@ -27,7 +26,8 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 }
 
 void HelloSvgApp::setup() {
-  mNanoVG = make_shared<nvg::Context>(nvg::Context::create());
+  // Create a NanoVG context without anti-aliasing.
+  mNanoVG = make_shared<nvg::Context>(nvg::Context::create(false));
   mDoc = svg::Doc::create(loadAsset("rainbow_dash.svg"));
 }
 
@@ -49,9 +49,7 @@ void HelloSvgApp::draw() {
   mNanoVG->endFrame();
 }
 
-// NanoVG requires a stencil buffer in the main framebuffer and performs it's
-// own anti-aliasing by default. We disable opengl's AA and enable stencil here
-// to allow for this.
+// Since we are disabling anti-aliasing in NanoVG, we enable MSAA here.
 CINDER_APP_NATIVE(HelloSvgApp, RendererGl(
-  RendererGl::Options().antiAliasing(RendererGl::AA_NONE).stencil()
+  RendererGl::Options().antiAliasing(RendererGl::AA_MSAA_4).stencil()
 ))
