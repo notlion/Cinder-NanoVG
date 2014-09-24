@@ -26,12 +26,10 @@ bool SvgRenderer::prepareFill(const svg::Node &node) {
     float opacity = mFillOpacityStack.back();
 
     if (paint.isLinearGradient()) {
-      // NanoVG currently only supports gradients with 2 colors.
-      auto c0 = paint.getColor(0);
-      auto c1 = paint.getColor(1);
-      c0.a *= opacity;
-      c1.a *= opacity;
-      mCtx.fillPaint(mCtx.linearGradient(paint.getCoords0(), paint.getCoords1(), c0, c1));
+      auto nvgPaint = mCtx.convert(paint);
+      nvgPaint.innerColor.a *= opacity;
+      nvgPaint.outerColor.a *= opacity;
+      mCtx.fillPaint(nvgPaint);
     }
     else if (paint.isRadialGradient()) {
       // TODO(ryan): Implement this.
@@ -54,9 +52,24 @@ bool SvgRenderer::prepareStroke(const svg::Node &node) {
     return false;
   }
   else {
-    ColorAf color = paint.getColor();
-    color.a *= mStrokeOpacityStack.back();
-    mCtx.strokeColor(color);
+    float opacity = mStrokeOpacityStack.back();
+
+    if (paint.isLinearGradient()) {
+      auto nvgPaint = mCtx.convert(paint);
+      nvgPaint.innerColor.a *= opacity;
+      nvgPaint.outerColor.a *= opacity;
+      mCtx.strokePaint(nvgPaint);
+    }
+    else if (paint.isRadialGradient()) {
+      // TODO(ryan): Implement this.
+      return false;
+    }
+    else {
+      ColorAf color = paint.getColor();
+      color.a *= opacity;
+      mCtx.strokeColor(color);
+    }
+
     return true;
   }
 }

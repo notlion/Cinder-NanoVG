@@ -10,23 +10,49 @@
 #endif
 #include "nanovg_gl.h"
 
-using std::string;
-using std::function;
-
 namespace cinder { namespace nvg {
+
+Context::Context(NVGcontext *ptr, Deleter deleter) : mPtr{ ptr, deleter } {
+}
 
 Context Context::create(bool antiAlias, bool stencilStrokes) {
   int flags = (antiAlias      ? NVG_ANTIALIAS       : 0) |
               (stencilStrokes ? NVG_STENCIL_STROKES : 0);
 
 #if defined(NANOVG_GLES2)
-  return { Context::BackingCtx{ nvgCreateGLES2(flags), nvgDeleteGLES2 } };
+  return { nvgCreateGLES2(flags), nvgDeleteGLES2 };
 #else
-  return { Context::BackingCtx{ nvgCreateGL3(flags), nvgDeleteGL3 } };
+  return { nvgCreateGL3(flags), nvgDeleteGL3 };
 #endif
 }
 
-Context::Context(BackingCtx&& ctx) : mCtx{ std::move(ctx) } {
+// svg::Paint to NVGpaint conversion.
+// Currently only works for 2-color linear gradients.
+NVGpaint Context::convert(const svg::Paint &paint) {
+  // NanoVG does not really support radial gradients in the same way as SVG.
+  // Cinder seems to support unequal radius on x and y, and NVG has two radii.
+  // Since I don't have a use for this i'm just going to punt for now.
+  // There is probably also a better way to handle this..
+  assert(paint.isLinearGradient());
+
+  const auto& p0 = paint.getCoords0();
+  const auto& p1 = paint.getCoords1();
+  const auto& c0 = paint.getColor(0);
+  const auto& c1 = paint.getColor(1);
+
+  return linearGradient(p0, p1, c0, c1);
+}
+
+void Context::strokePaint(const svg::Paint &paint) {
+  if (paint.isNone()) return;
+  if (paint.isLinearGradient()) strokePaint(convert(paint));
+  strokeColor(paint.getColor());
+}
+
+void Context::fillPaint(const svg::Paint &paint) {
+  if (paint.isNone()) return;
+  if (paint.isLinearGradient()) fillPaint(convert(paint));
+  fillColor(paint.getColor());
 }
 
 void Context::polyLine(const PolyLine2f& polyline) {
