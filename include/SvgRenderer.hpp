@@ -19,9 +19,9 @@ class SvgRenderer : public svg::Renderer {
 public:
   SvgRenderer(Context &ctx);
 
-  bool prepareFill(const svg::Node &node);
-  bool prepareStroke(const svg::Node &node);
-  void fillAndStroke(const svg::Node &node);
+  bool prepareFill();
+  bool prepareStroke();
+  void fillAndStroke();
 
   void pushGroup(const svg::Group &group, float opacity) override {};
   void popGroup() override {};

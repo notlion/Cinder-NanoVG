@@ -16,7 +16,7 @@ SvgRenderer::SvgRenderer(Context &ctx) : mCtx{ ctx } {
 }
 
 
-bool SvgRenderer::prepareFill(const svg::Node &node) {
+bool SvgRenderer::prepareFill() {
   const auto &paint = mFillStack.back();
 
   if (paint.isNone()) {
@@ -45,7 +45,7 @@ bool SvgRenderer::prepareFill(const svg::Node &node) {
   }
 }
 
-bool SvgRenderer::prepareStroke(const svg::Node &node) {
+bool SvgRenderer::prepareStroke() {
   const auto &paint = mStrokeStack.back();
 
   if (paint.isNone()) {
@@ -74,53 +74,53 @@ bool SvgRenderer::prepareStroke(const svg::Node &node) {
   }
 }
 
-void SvgRenderer::fillAndStroke(const svg::Node &node) {
-  if (prepareFill(node)) mCtx.fill();
-  if (prepareStroke(node)) mCtx.stroke();
+void SvgRenderer::fillAndStroke() {
+  if (prepareFill()) mCtx.fill();
+  if (prepareStroke()) mCtx.stroke();
 }
 
 
 void SvgRenderer::drawPath(const svg::Path &path) {
   mCtx.beginPath();
   mCtx.shape2d(path.getShape2d());
-  fillAndStroke(path);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawPolyline(const svg::Polyline &polyline) {
   mCtx.beginPath();
   mCtx.polyLine(polyline.getPolyLine());
-  fillAndStroke(polyline);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawPolygon(const svg::Polygon &polygon) {
   mCtx.beginPath();
   mCtx.polyLine(polygon.getPolyLine());
-  fillAndStroke(polygon);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawLine(const svg::Line &line) {
   mCtx.beginPath();
   mCtx.moveTo(line.getPoint1());
   mCtx.lineTo(line.getPoint2());
-  fillAndStroke(line);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawRect(const svg::Rect &rect) {
   mCtx.beginPath();
   mCtx.rect(rect.getRect());
-  fillAndStroke(rect);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawCircle(const svg::Circle &circle) {
   mCtx.beginPath();
   mCtx.circle(circle.getCenter(), circle.getRadius());
-  fillAndStroke(circle);
+  fillAndStroke();
 }
 
 void SvgRenderer::drawEllipse(const svg::Ellipse &ellipse) {
   mCtx.beginPath();
   mCtx.ellipse(ellipse.getCenter(), ellipse.getRadiusX(), ellipse.getRadiusY());
-  fillAndStroke(ellipse);
+  fillAndStroke();
 }
 
 
