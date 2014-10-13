@@ -41,6 +41,9 @@ public:
   inline void beginFrame(const ivec2 &windowSize, float devicePixelRatio) {
     beginFrame(windowSize.x, windowSize.y, devicePixelRatio);
   }
+  inline void cancelFrame() {
+    nvgCancelFrame(get());
+  }
   inline void endFrame() {
     nvgEndFrame(get());
   }
