@@ -200,7 +200,7 @@ public:
     nvgCircle(get(), cx, cy, r);
   }
   inline void circle(const vec2 &center, float radius) {
-    circle(center.x, center.x, radius);
+    circle(center.x, center.y, radius);
   }
 
   inline void fill() { nvgFill(get()); }
