@@ -206,6 +206,5 @@ void RenderToTextureApp::draw() {
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
 // own anti-aliasing by default. We disable opengl's AA and enable stencil here
 // to allow for this.
-CINDER_APP_NATIVE(RenderToTextureApp, RendererGl{
-  RendererGl::Options().antiAliasing(RendererGl::AA_NONE).stencil()
-})
+CINDER_APP_NATIVE(RenderToTextureApp, RendererGl(
+  RendererGl::Options().stencil().msaa(0)))

@@ -51,5 +51,4 @@ void HelloSvgApp::draw() {
 
 // Since we are disabling anti-aliasing in NanoVG, we enable MSAA here.
 CINDER_APP_NATIVE(HelloSvgApp, RendererGl(
-  RendererGl::Options().antiAliasing(RendererGl::AA_MSAA_4).stencil()
-))
+  RendererGl::Options().msaa(4).stencil()))
