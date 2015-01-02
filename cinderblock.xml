@@ -12,9 +12,14 @@
   >
   <supports os="macosx" />
   <supports os="ios" />
+  <supports os="msw" />
   <headerPattern>deps/nanovg/src/*.h</headerPattern>
   <sourcePattern>deps/nanovg/src/*.c</sourcePattern>
   <headerPattern>include/*.hpp</headerPattern>
   <sourcePattern>src/*.cpp</sourcePattern>
+  <platform os="msw">
+    <includePath>include/</includePath>
+    <includePath>deps/nanovg/src/</includePath>
+  </platform>
 </block>
 </cinder>
