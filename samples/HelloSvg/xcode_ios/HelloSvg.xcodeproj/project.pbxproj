@@ -17,9 +17,10 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		8122D033E8E5492585D801F7 /* HelloSvgApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665C686EE94B441CB61E5D9D /* HelloSvgApp.cpp */; };
+		9424A8EE1A6DFCDA008B4747 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A8EB1A6DFCDA008B4747 /* nanovg.cpp */; };
+		9424A8EF1A6DFCDA008B4747 /* nanovg_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A8EC1A6DFCDA008B4747 /* nanovg_gl.cpp */; };
+		9424A8F01A6DFCDA008B4747 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A8ED1A6DFCDA008B4747 /* SvgRenderer.cpp */; };
 		9479DF3F19BBDF1B00126EB0 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 9479DE0819BBDF1B00126EB0 /* nanovg.c */; };
-		9479DFF819BBDF1B00126EB0 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9479DF1C19BBDF1B00126EB0 /* nanovg.cpp */; };
-		9479DFF919BBDF1B00126EB0 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9479DF1D19BBDF1B00126EB0 /* SvgRenderer.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
@@ -44,6 +45,12 @@
 		396544866065449F80D93170 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		665C686EE94B441CB61E5D9D /* HelloSvgApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = HelloSvgApp.cpp; path = ../src/HelloSvgApp.cpp; sourceTree = "<group>"; };
 		763D54BDDCE04558A999D8B1 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		9424A8E71A6DFCDA008B4747 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
+		9424A8E81A6DFCDA008B4747 /* nanovg_gl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl.hpp; sourceTree = "<group>"; };
+		9424A8E91A6DFCDA008B4747 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
+		9424A8EB1A6DFCDA008B4747 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
+		9424A8EC1A6DFCDA008B4747 /* nanovg_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg_gl.cpp; sourceTree = "<group>"; };
+		9424A8ED1A6DFCDA008B4747 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
 		9479DE0719BBDF1B00126EB0 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		9479DE0819BBDF1B00126EB0 /* nanovg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
 		9479DE0919BBDF1B00126EB0 /* nanovg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg.h; sourceTree = "<group>"; };
@@ -51,10 +58,6 @@
 		9479DE0B19BBDF1B00126EB0 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg_gl_utils.h; sourceTree = "<group>"; };
 		9479DE0C19BBDF1B00126EB0 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		9479DE0D19BBDF1B00126EB0 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
-		9479DE0F19BBDF1B00126EB0 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
-		9479DE1019BBDF1B00126EB0 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
-		9479DF1C19BBDF1B00126EB0 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
-		9479DF1D19BBDF1B00126EB0 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
 		9EFB2AC1C66840F391A878E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A48CB112CF7E40E9B6385B42 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = CinderApp_ios.png; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -147,12 +150,32 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9424A8E61A6DFCDA008B4747 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9424A8E71A6DFCDA008B4747 /* nanovg.hpp */,
+				9424A8E81A6DFCDA008B4747 /* nanovg_gl.hpp */,
+				9424A8E91A6DFCDA008B4747 /* SvgRenderer.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9424A8EA1A6DFCDA008B4747 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9424A8EB1A6DFCDA008B4747 /* nanovg.cpp */,
+				9424A8EC1A6DFCDA008B4747 /* nanovg_gl.cpp */,
+				9424A8ED1A6DFCDA008B4747 /* SvgRenderer.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		9479DDDA19BBDF1B00126EB0 /* Cinder-NanoVG */ = {
 			isa = PBXGroup;
 			children = (
 				9479DDDD19BBDF1B00126EB0 /* deps */,
-				9479DE0E19BBDF1B00126EB0 /* include */,
-				9479DF1B19BBDF1B00126EB0 /* src */,
+				9424A8E61A6DFCDA008B4747 /* include */,
+				9424A8EA1A6DFCDA008B4747 /* src */,
 			);
 			name = "Cinder-NanoVG";
 			path = ../../..;
@@ -184,24 +207,6 @@
 				9479DE0B19BBDF1B00126EB0 /* nanovg_gl_utils.h */,
 				9479DE0C19BBDF1B00126EB0 /* stb_image.h */,
 				9479DE0D19BBDF1B00126EB0 /* stb_truetype.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		9479DE0E19BBDF1B00126EB0 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9479DE0F19BBDF1B00126EB0 /* nanovg.hpp */,
-				9479DE1019BBDF1B00126EB0 /* SvgRenderer.hpp */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		9479DF1B19BBDF1B00126EB0 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9479DF1C19BBDF1B00126EB0 /* nanovg.cpp */,
-				9479DF1D19BBDF1B00126EB0 /* SvgRenderer.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -285,10 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9479DFF919BBDF1B00126EB0 /* SvgRenderer.cpp in Sources */,
-				9479DFF819BBDF1B00126EB0 /* nanovg.cpp in Sources */,
 				9479DF3F19BBDF1B00126EB0 /* nanovg.c in Sources */,
+				9424A8EF1A6DFCDA008B4747 /* nanovg_gl.cpp in Sources */,
+				9424A8EE1A6DFCDA008B4747 /* nanovg.cpp in Sources */,
 				8122D033E8E5492585D801F7 /* HelloSvgApp.cpp in Sources */,
+				9424A8F01A6DFCDA008B4747 /* SvgRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

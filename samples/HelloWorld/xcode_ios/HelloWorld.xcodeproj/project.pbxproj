@@ -16,9 +16,10 @@
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
 		8C73E255A81C467A979A9562 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA4FF37B2507493BA83E9A08 /* Default-568h@2x.png */; };
+		9424A9041A6DFD80008B4747 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9011A6DFD80008B4747 /* nanovg.cpp */; };
+		9424A9051A6DFD80008B4747 /* nanovg_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9021A6DFD80008B4747 /* nanovg_gl.cpp */; };
+		9424A9061A6DFD80008B4747 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9031A6DFD80008B4747 /* SvgRenderer.cpp */; };
 		9479D8C219BBCBC800126EB0 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 9479D79119BBCBC700126EB0 /* nanovg.c */; };
-		9479D97719BBCBC800126EB0 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9479D89F19BBCBC800126EB0 /* nanovg.cpp */; };
-		9479D97819BBCBC800126EB0 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9479D8A019BBCBC800126EB0 /* SvgRenderer.cpp */; };
 		B59AE67B4B0C42FA890ED5C3 /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BAC2C39566442DA7E5D7B1 /* CinderApp_ios.png */; };
 		BFD282C70733477BA64BF8EF /* HelloWorldApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F109C3EFDC74C649527D0BE /* HelloWorldApp.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -42,6 +43,12 @@
 		22BAC2C39566442DA7E5D7B1 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = CinderApp_ios.png; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9424A8FD1A6DFD80008B4747 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
+		9424A8FE1A6DFD80008B4747 /* nanovg_gl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl.hpp; sourceTree = "<group>"; };
+		9424A8FF1A6DFD80008B4747 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
+		9424A9011A6DFD80008B4747 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
+		9424A9021A6DFD80008B4747 /* nanovg_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg_gl.cpp; sourceTree = "<group>"; };
+		9424A9031A6DFD80008B4747 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
 		9479D79019BBCBC700126EB0 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		9479D79119BBCBC700126EB0 /* nanovg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
 		9479D79219BBCBC700126EB0 /* nanovg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg.h; sourceTree = "<group>"; };
@@ -49,10 +56,6 @@
 		9479D79419BBCBC700126EB0 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nanovg_gl_utils.h; sourceTree = "<group>"; };
 		9479D79519BBCBC700126EB0 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		9479D79619BBCBC700126EB0 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
-		9479D79819BBCBC700126EB0 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
-		9479D79C19BBCBC700126EB0 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
-		9479D89F19BBCBC800126EB0 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
-		9479D8A019BBCBC800126EB0 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
 		AA4FF37B2507493BA83E9A08 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AC48395538B04387BFF0B998 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		C3DE23C9297540238659EAFD /* HelloWorld_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = HelloWorld_Prefix.pch; sourceTree = "<group>"; };
@@ -147,12 +150,32 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9424A8FC1A6DFD80008B4747 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9424A8FD1A6DFD80008B4747 /* nanovg.hpp */,
+				9424A8FE1A6DFD80008B4747 /* nanovg_gl.hpp */,
+				9424A8FF1A6DFD80008B4747 /* SvgRenderer.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9424A9001A6DFD80008B4747 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9424A9011A6DFD80008B4747 /* nanovg.cpp */,
+				9424A9021A6DFD80008B4747 /* nanovg_gl.cpp */,
+				9424A9031A6DFD80008B4747 /* SvgRenderer.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		9479D76319BBCBC700126EB0 /* Cinder-NanoVG */ = {
 			isa = PBXGroup;
 			children = (
 				9479D76619BBCBC700126EB0 /* deps */,
-				9479D79719BBCBC700126EB0 /* include */,
-				9479D89E19BBCBC800126EB0 /* src */,
+				9424A8FC1A6DFD80008B4747 /* include */,
+				9424A9001A6DFD80008B4747 /* src */,
 			);
 			name = "Cinder-NanoVG";
 			path = ../../..;
@@ -184,24 +207,6 @@
 				9479D79419BBCBC700126EB0 /* nanovg_gl_utils.h */,
 				9479D79519BBCBC700126EB0 /* stb_image.h */,
 				9479D79619BBCBC700126EB0 /* stb_truetype.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		9479D79719BBCBC700126EB0 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				9479D79819BBCBC700126EB0 /* nanovg.hpp */,
-				9479D79C19BBCBC700126EB0 /* SvgRenderer.hpp */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		9479D89E19BBCBC800126EB0 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				9479D89F19BBCBC800126EB0 /* nanovg.cpp */,
-				9479D8A019BBCBC800126EB0 /* SvgRenderer.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -285,10 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9479D97819BBCBC800126EB0 /* SvgRenderer.cpp in Sources */,
-				9479D97719BBCBC800126EB0 /* nanovg.cpp in Sources */,
 				9479D8C219BBCBC800126EB0 /* nanovg.c in Sources */,
+				9424A9051A6DFD80008B4747 /* nanovg_gl.cpp in Sources */,
+				9424A9041A6DFD80008B4747 /* nanovg.cpp in Sources */,
 				BFD282C70733477BA64BF8EF /* HelloWorldApp.cpp in Sources */,
+				9424A9061A6DFD80008B4747 /* SvgRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

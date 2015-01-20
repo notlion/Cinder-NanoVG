@@ -9,7 +9,7 @@
 #include "cinder/Rand.h"
 #include "cinder/BSpline.h"
 
-#include "nanovg.hpp"
+#include "nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -142,7 +142,7 @@ void RenderToTextureApp::generateShapes() {
 
 void RenderToTextureApp::setup() {
   Rand::randomize();
-  mCtx = make_shared<nvg::Context>(nvg::Context::create());
+  mCtx = make_shared<nvg::Context>(nvg::createContextGL());
   mCtx->createFont("roboto", getAssetPath("Roboto-Regular.ttf").string());
 
   getWindow()->getSignalTouchesBegan().connect([&](const TouchEvent event) {

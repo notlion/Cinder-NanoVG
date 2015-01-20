@@ -7,83 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00748058165D41390024B57A /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 00748057165D41390024B57A /* assets */; };
 		0087D25512CD809F002CD69F /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0087D25412CD809F002CD69F /* CoreText.framework */; };
+		00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A66A351965AC8800B17EB3 /* Accelerate.framework */; };
 		00CFDF6B1138442D0091E310 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091E310 /* CoreGraphics.framework */; };
-		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
-		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1E5B032C687B4106B831C02C /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 31EB2561B9864DE08AAF5B15 /* CinderApp_ios.png */; };
+		245DCF636C0F43FB900B3AAD /* RenderToTextureApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD084A25F234ADBB9E584AD /* RenderToTextureApp.cpp */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
-		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {
-	ATTRIBUTES = (
-		Weak,
-	);
-}; };
-		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {
-	ATTRIBUTES = (
-		Weak,
-	);
-}; };
-		C727C02E121B400300192073 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02D121B400300192073 /* CoreVideo.framework */; settings = {
-	ATTRIBUTES = (
-		Weak,
-	);
-}; };
-		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
-		00A66A361965AC8800B17EB3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A66A351965AC8800B17EB3 /* Accelerate.framework */; };
-		00748058165D41390024B57A /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 00748057165D41390024B57A /* assets */; };
-		723D598230EE4E559586F5E4 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F40833B6DF9E4412BFAEC0D4 /* SvgRenderer.cpp */; };
-		FADFA136617342308E3FBC12 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13C135DBF5E44484BD680780 /* nanovg.cpp */; };
-		1FF032A6380C4843B6253B43 /* SvgRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 939A9136F8A6459EB057F1D2 /* SvgRenderer.hpp */; };
-		0BBFFC3B2A2C4D70BADDD6E2 /* nanovg.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8AD1F720F0AB48378B34B467 /* nanovg.hpp */; };
-		DA4EB2CD7B594EB4A42F0758 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 50A28A80F6474991BA123D14 /* nanovg.c */; };
-		449B3BF81C514B0AA4DCCC02 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = CC01EC7AB2864522A38F5AE6 /* stb_truetype.h */; };
-		7B83CE793AFF43F7AE757369 /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = BD18FD1901FA4C8FA3F963F6 /* stb_image.h */; };
-		7E3DC9C14F4C440394CC846D /* nanovg_gl_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6287B07D3BFF49699A847F3B /* nanovg_gl_utils.h */; };
-		2E51E73AB27B4878AE8E4EF8 /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3BDE1EB6914ADD8A608787 /* nanovg_gl.h */; };
-		8CEDC9ED65384596826BF481 /* nanovg.h in Headers */ = {isa = PBXBuildFile; fileRef = 51DEE81AEBD9476196DD42AC /* nanovg.h */; };
-		854E83DCC87F452D8AE5AA8B /* fontstash.h in Headers */ = {isa = PBXBuildFile; fileRef = F6527083BB8F40D28217EB7E /* fontstash.h */; };
-		33866BBA9FB84A649111D6E7 /* RenderToTexture_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 455E584730984FD6A047857C /* RenderToTexture_Prefix.pch */; };
 		2A883AB0BD8C427793DA73B4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4011348067A4233B83CFD2B /* Default-568h@2x.png */; };
-		1E5B032C687B4106B831C02C /* CinderApp_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = 31EB2561B9864DE08AAF5B15 /* CinderApp_ios.png */; };
-		4DC15DE7896F42DE80B80DD1 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B3E247C1FA4D589FB78C99 /* Resources.h */; };
-		245DCF636C0F43FB900B3AAD /* RenderToTextureApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AD084A25F234ADBB9E584AD /* RenderToTextureApp.cpp */; };
+		9424A9251A6DFED7008B4747 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9221A6DFED7008B4747 /* nanovg.cpp */; };
+		9424A9261A6DFED7008B4747 /* nanovg_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9231A6DFED7008B4747 /* nanovg_gl.cpp */; };
+		9424A9271A6DFED7008B4747 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9241A6DFED7008B4747 /* SvgRenderer.cpp */; };
+		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
+		C727C02E121B400300192073 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02D121B400300192073 /* CoreVideo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C7FB19D6124BC0D70045AFD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */; };
+		DA4EB2CD7B594EB4A42F0758 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 50A28A80F6474991BA123D14 /* nanovg.c */; };
+		DDDDE001121DAC8FFFFADDDD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00692BCF14FF149000D0A05E /* RenderToTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenderToTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00748057165D41390024B57A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		00A66A351965AC8800B17EB3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091E310 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091FFFF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		10B3E247C1FA4D589FB78C99 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		31EB2561B9864DE08AAF5B15 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = CinderApp_ios.png; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; };
+		455E584730984FD6A047857C /* RenderToTexture_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = RenderToTexture_Prefix.pch; sourceTree = "<group>"; };
+		50A28A80F6474991BA123D14 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = nanovg.c; path = ../../../deps/nanovg/src/nanovg.c; sourceTree = "<group>"; };
+		51DEE81AEBD9476196DD42AC /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = ../../../deps/nanovg/src/nanovg.h; sourceTree = "<group>"; };
+		6287B07D3BFF49699A847F3B /* nanovg_gl_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg_gl_utils.h; path = ../../../deps/nanovg/src/nanovg_gl_utils.h; sourceTree = "<group>"; };
+		62FBD14869A84D9991F72BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9424A91E1A6DFED7008B4747 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
+		9424A91F1A6DFED7008B4747 /* nanovg_gl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl.hpp; sourceTree = "<group>"; };
+		9424A9201A6DFED7008B4747 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
+		9424A9221A6DFED7008B4747 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
+		9424A9231A6DFED7008B4747 /* nanovg_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg_gl.cpp; sourceTree = "<group>"; };
+		9424A9241A6DFED7008B4747 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
+		9AD084A25F234ADBB9E584AD /* RenderToTextureApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = RenderToTextureApp.cpp; path = ../src/RenderToTextureApp.cpp; sourceTree = "<group>"; };
+		BD18FD1901FA4C8FA3F963F6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stb_image.h; path = ../../../deps/nanovg/src/stb_image.h; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		00A66A351965AC8800B17EB3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		00748057165D41390024B57A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
-		9AD084A25F234ADBB9E584AD /* RenderToTextureApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/RenderToTextureApp.cpp; sourceTree = "<group>"; name = RenderToTextureApp.cpp; };
-		10B3E247C1FA4D589FB78C99 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		31EB2561B9864DE08AAF5B15 /* CinderApp_ios.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../resources/CinderApp_ios.png; sourceTree = "<group>"; name = CinderApp_ios.png; };
-		E4011348067A4233B83CFD2B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = "Default-568h@2x.png"; sourceTree = "<group>"; name = "Default-568h@2x.png"; };
-		62FBD14869A84D9991F72BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		455E584730984FD6A047857C /* RenderToTexture_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = RenderToTexture_Prefix.pch; sourceTree = "<group>"; name = RenderToTexture_Prefix.pch; };
-		F6527083BB8F40D28217EB7E /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/fontstash.h; sourceTree = "<group>"; name = fontstash.h; };
-		51DEE81AEBD9476196DD42AC /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg.h; sourceTree = "<group>"; name = nanovg.h; };
-		DE3BDE1EB6914ADD8A608787 /* nanovg_gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg_gl.h; sourceTree = "<group>"; name = nanovg_gl.h; };
-		6287B07D3BFF49699A847F3B /* nanovg_gl_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg_gl_utils.h; sourceTree = "<group>"; name = nanovg_gl_utils.h; };
-		BD18FD1901FA4C8FA3F963F6 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/stb_image.h; sourceTree = "<group>"; name = stb_image.h; };
-		CC01EC7AB2864522A38F5AE6 /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/stb_truetype.h; sourceTree = "<group>"; name = stb_truetype.h; };
-		50A28A80F6474991BA123D14 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../deps/nanovg/src/nanovg.c; sourceTree = "<group>"; name = nanovg.c; };
-		8AD1F720F0AB48378B34B467 /* nanovg.hpp */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../include/nanovg.hpp; sourceTree = "<group>"; name = nanovg.hpp; };
-		939A9136F8A6459EB057F1D2 /* SvgRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../include/SvgRenderer.hpp; sourceTree = "<group>"; name = SvgRenderer.hpp; };
-		13C135DBF5E44484BD680780 /* nanovg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../../../src/nanovg.cpp; sourceTree = "<group>"; name = nanovg.cpp; };
-		F40833B6DF9E4412BFAEC0D4 /* SvgRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../../../src/SvgRenderer.cpp; sourceTree = "<group>"; name = SvgRenderer.cpp; };
+		CC01EC7AB2864522A38F5AE6 /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = ../../../deps/nanovg/src/stb_truetype.h; sourceTree = "<group>"; };
+		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DE3BDE1EB6914ADD8A608787 /* nanovg_gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg_gl.h; path = ../../../deps/nanovg/src/nanovg_gl.h; sourceTree = "<group>"; };
+		E4011348067A4233B83CFD2B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F6527083BB8F40D28217EB7E /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fontstash.h; path = ../../../deps/nanovg/src/fontstash.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,81 +131,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A7F6E50CDE54AADA808AB9D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				F6527083BB8F40D28217EB7E /* fontstash.h */,
-				51DEE81AEBD9476196DD42AC /* nanovg.h */,
-				DE3BDE1EB6914ADD8A608787 /* nanovg_gl.h */,
-				6287B07D3BFF49699A847F3B /* nanovg_gl_utils.h */,
-				BD18FD1901FA4C8FA3F963F6 /* stb_image.h */,
-				CC01EC7AB2864522A38F5AE6 /* stb_truetype.h */,
-				50A28A80F6474991BA123D14 /* nanovg.c */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		1C2128A73E27452396F1B1A2 /* nanovg */ = {
-			isa = PBXGroup;
-			children = (
-				4A7F6E50CDE54AADA808AB9D /* src */,
-			);
-			name = nanovg;
-			sourceTree = "<group>";
-		};
-		75EF34B22CE34B36ADA30B34 /* deps */ = {
-			isa = PBXGroup;
-			children = (
-				1C2128A73E27452396F1B1A2 /* nanovg */,
-			);
-			name = deps;
-			sourceTree = "<group>";
-		};
-		F96ECF76B04D4381989BE827 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				8AD1F720F0AB48378B34B467 /* nanovg.hpp */,
-				939A9136F8A6459EB057F1D2 /* SvgRenderer.hpp */,
-			);
-			name = include;
-			sourceTree = "<group>";
-		};
-		598B3DEB19B140A2B8F8CB92 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				13C135DBF5E44484BD680780 /* nanovg.cpp */,
-				F40833B6DF9E4412BFAEC0D4 /* SvgRenderer.cpp */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		0DC86093D4054822A535C61B /* NanoVG */ = {
-			isa = PBXGroup;
-			children = (
-				75EF34B22CE34B36ADA30B34 /* deps */,
-				F96ECF76B04D4381989BE827 /* include */,
-				598B3DEB19B140A2B8F8CB92 /* src */,
-			);
-			name = NanoVG;
-			sourceTree = "<group>";
-		};
-		99692BD914FF149000DFFFFF /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				0DC86093D4054822A535C61B /* NanoVG */,
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
-		99692BD914FF149000D0A05F /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				10B3E247C1FA4D589FB78C99 /* Resources.h */,
-				455E584730984FD6A047857C /* RenderToTexture_Prefix.pch */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
 		00692BD914FF149000D0A05E /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +148,85 @@
 				62FBD14869A84D9991F72BC1 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		0DC86093D4054822A535C61B /* NanoVG */ = {
+			isa = PBXGroup;
+			children = (
+				75EF34B22CE34B36ADA30B34 /* deps */,
+				9424A91D1A6DFED7008B4747 /* include */,
+				9424A9211A6DFED7008B4747 /* src */,
+			);
+			name = NanoVG;
+			sourceTree = "<group>";
+		};
+		1C2128A73E27452396F1B1A2 /* nanovg */ = {
+			isa = PBXGroup;
+			children = (
+				4A7F6E50CDE54AADA808AB9D /* src */,
+			);
+			name = nanovg;
+			sourceTree = "<group>";
+		};
+		4A7F6E50CDE54AADA808AB9D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F6527083BB8F40D28217EB7E /* fontstash.h */,
+				51DEE81AEBD9476196DD42AC /* nanovg.h */,
+				DE3BDE1EB6914ADD8A608787 /* nanovg_gl.h */,
+				6287B07D3BFF49699A847F3B /* nanovg_gl_utils.h */,
+				BD18FD1901FA4C8FA3F963F6 /* stb_image.h */,
+				CC01EC7AB2864522A38F5AE6 /* stb_truetype.h */,
+				50A28A80F6474991BA123D14 /* nanovg.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		75EF34B22CE34B36ADA30B34 /* deps */ = {
+			isa = PBXGroup;
+			children = (
+				1C2128A73E27452396F1B1A2 /* nanovg */,
+			);
+			name = deps;
+			sourceTree = "<group>";
+		};
+		9424A91D1A6DFED7008B4747 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9424A91E1A6DFED7008B4747 /* nanovg.hpp */,
+				9424A91F1A6DFED7008B4747 /* nanovg_gl.hpp */,
+				9424A9201A6DFED7008B4747 /* SvgRenderer.hpp */,
+			);
+			name = include;
+			path = ../../../include;
+			sourceTree = "<group>";
+		};
+		9424A9211A6DFED7008B4747 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9424A9221A6DFED7008B4747 /* nanovg.cpp */,
+				9424A9231A6DFED7008B4747 /* nanovg_gl.cpp */,
+				9424A9241A6DFED7008B4747 /* SvgRenderer.cpp */,
+			);
+			name = src;
+			path = ../../../src;
+			sourceTree = "<group>";
+		};
+		99692BD914FF149000D0A05F /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				10B3E247C1FA4D589FB78C99 /* Resources.h */,
+				455E584730984FD6A047857C /* RenderToTexture_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		99692BD914FF149000DFFFFF /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				0DC86093D4054822A535C61B /* NanoVG */,
+			);
+			name = Blocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +254,8 @@
 /* Begin PBXProject section */
 		00692BC614FF149000D0A05E /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "RenderToTexture" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -305,9 +292,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				245DCF636C0F43FB900B3AAD /* RenderToTextureApp.cpp in Sources */,
+				9424A9261A6DFED7008B4747 /* nanovg_gl.cpp in Sources */,
+				9424A9251A6DFED7008B4747 /* nanovg.cpp in Sources */,
 				DA4EB2CD7B594EB4A42F0758 /* nanovg.c in Sources */,
-				FADFA136617342308E3FBC12 /* nanovg.cpp in Sources */,
-				723D598230EE4E559586F5E4 /* SvgRenderer.cpp in Sources */,
+				9424A9271A6DFED7008B4747 /* SvgRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,13 +305,14 @@
 		00692BF314FF149000D0A05E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEAD_CODE_STRIPPING = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CINDER_PATH = ../../../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -336,11 +325,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				CINDER_PATH = "../../../../..";
-				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Debug;
@@ -348,13 +336,14 @@
 		00692BF414FF149000D0A05E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEAD_CODE_STRIPPING = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CINDER_PATH = ../../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
@@ -364,14 +353,13 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				CINDER_PATH = "../../../../..";
-				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -379,10 +367,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RenderToTexture_Prefix.pch";
-				INFOPLIST_FILE = "Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
 					"\"$(CINDER_PATH)/lib/libcinder-iphone_d.a\"",
 					"-lz",
@@ -391,6 +377,8 @@
 					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim_d.a\"",
 					"-lz",
 				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
@@ -398,10 +386,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RenderToTexture_Prefix.pch";
-				INFOPLIST_FILE = "Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
 				"OTHER_LDFLAGS[sdk=iphoneos*][arch=*]" = (
 					"\"$(CINDER_PATH)/lib/libcinder-iphone.a\"",
 					"-lz",
@@ -410,6 +396,8 @@
 					"\"$(CINDER_PATH)/lib/libcinder-iphone-sim.a\"",
 					"-lz",
 				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,24 +14,15 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		0BD844A9B0D241F3BF65E543 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9A04E76825D547CB8319694E /* CinderApp.icns */; };
+		29AAD1D703F647A0BCE1F401 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 8B93811432E3487DB8BD209F /* nanovg.c */; };
+		47A1E740C43E4E538C4B1CC8 /* RenderToTextureApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30B8988E3E1440AF88D10B0F /* RenderToTextureApp.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		B0427CB18E1F4722AE469B78 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB03854BFE0841C08271553A /* SvgRenderer.cpp */; };
-		09DCA078DBD74A17BB91CF3E /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB60B410A7E14D17BBDED08C /* nanovg.cpp */; };
-		C3C1C2C4F6EF416188F202F5 /* SvgRenderer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3897D2392CC643B892DB9590 /* SvgRenderer.hpp */; };
-		5E17B4CA414441528DD5AA24 /* nanovg.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B11D2C6944C84BAF17D38 /* nanovg.hpp */; };
-		29AAD1D703F647A0BCE1F401 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 8B93811432E3487DB8BD209F /* nanovg.c */; };
-		7E5324525E334FB09C540999 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = 88900466F8D64DA7A300E8AA /* stb_truetype.h */; };
-		62B7DF7D9B4C4573868EFE4A /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F25510EB244EFB98E4A76C /* stb_image.h */; };
-		2DCC3E46F8854266ACFE8F77 /* nanovg_gl_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BD6F3B430044B47A7508209 /* nanovg_gl_utils.h */; };
-		08BFBABEF8E64D2FAA03A023 /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = FC95106DD9DB4C32AB4D6632 /* nanovg_gl.h */; };
-		4F62510BD8B14CCDBF6EC55B /* nanovg.h in Headers */ = {isa = PBXBuildFile; fileRef = EED851B928EE463A8FA38C3A /* nanovg.h */; };
-		5C27667D885F46DBA683AA6F /* fontstash.h in Headers */ = {isa = PBXBuildFile; fileRef = 70593502B96E43A98A7352BC /* fontstash.h */; };
-		97CF24B8A66F4015A387C2D4 /* RenderToTexture_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 144773B9762C4C7B84EFB69B /* RenderToTexture_Prefix.pch */; };
-		0BD844A9B0D241F3BF65E543 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9A04E76825D547CB8319694E /* CinderApp.icns */; };
-		E0C2D2103E82440C8C439442 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E11446C46C04ABE997ADE00 /* Resources.h */; };
-		47A1E740C43E4E538C4B1CC8 /* RenderToTextureApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30B8988E3E1440AF88D10B0F /* RenderToTextureApp.cpp */; };
+		9424A91A1A6DFE95008B4747 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9171A6DFE95008B4747 /* nanovg.cpp */; };
+		9424A91B1A6DFE95008B4747 /* nanovg_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9181A6DFE95008B4747 /* nanovg_gl.cpp */; };
+		9424A91C1A6DFE95008B4747 /* SvgRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9424A9191A6DFE95008B4747 /* SvgRenderer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,28 +33,30 @@
 		00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		00B784B10FF439BC000DE1D7 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		0BD6F3B430044B47A7508209 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg_gl_utils.h; path = ../../../deps/nanovg/src/nanovg_gl_utils.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		144773B9762C4C7B84EFB69B /* RenderToTexture_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = RenderToTexture_Prefix.pch; sourceTree = "<group>"; };
+		1E11446C46C04ABE997ADE00 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		30B8988E3E1440AF88D10B0F /* RenderToTextureApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = RenderToTextureApp.cpp; path = ../src/RenderToTextureApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		57F25510EB244EFB98E4A76C /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stb_image.h; path = ../../../deps/nanovg/src/stb_image.h; sourceTree = "<group>"; };
+		5BB6CD3F3DF24CD289056A9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70593502B96E43A98A7352BC /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fontstash.h; path = ../../../deps/nanovg/src/fontstash.h; sourceTree = "<group>"; };
+		88900466F8D64DA7A300E8AA /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = ../../../deps/nanovg/src/stb_truetype.h; sourceTree = "<group>"; };
+		8B93811432E3487DB8BD209F /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; name = nanovg.c; path = ../../../deps/nanovg/src/nanovg.c; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* RenderToTexture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenderToTexture.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B8988E3E1440AF88D10B0F /* RenderToTextureApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/RenderToTextureApp.cpp; sourceTree = "<group>"; name = RenderToTextureApp.cpp; };
-		1E11446C46C04ABE997ADE00 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		9A04E76825D547CB8319694E /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
-		5BB6CD3F3DF24CD289056A9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		144773B9762C4C7B84EFB69B /* RenderToTexture_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = RenderToTexture_Prefix.pch; sourceTree = "<group>"; name = RenderToTexture_Prefix.pch; };
-		70593502B96E43A98A7352BC /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/fontstash.h; sourceTree = "<group>"; name = fontstash.h; };
-		EED851B928EE463A8FA38C3A /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg.h; sourceTree = "<group>"; name = nanovg.h; };
-		FC95106DD9DB4C32AB4D6632 /* nanovg_gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg_gl.h; sourceTree = "<group>"; name = nanovg_gl.h; };
-		0BD6F3B430044B47A7508209 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/nanovg_gl_utils.h; sourceTree = "<group>"; name = nanovg_gl_utils.h; };
-		57F25510EB244EFB98E4A76C /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/stb_image.h; sourceTree = "<group>"; name = stb_image.h; };
-		88900466F8D64DA7A300E8AA /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../deps/nanovg/src/stb_truetype.h; sourceTree = "<group>"; name = stb_truetype.h; };
-		8B93811432E3487DB8BD209F /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../deps/nanovg/src/nanovg.c; sourceTree = "<group>"; name = nanovg.c; };
-		0C1B11D2C6944C84BAF17D38 /* nanovg.hpp */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../include/nanovg.hpp; sourceTree = "<group>"; name = nanovg.hpp; };
-		3897D2392CC643B892DB9590 /* SvgRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = ../../../include/SvgRenderer.hpp; sourceTree = "<group>"; name = SvgRenderer.hpp; };
-		CB60B410A7E14D17BBDED08C /* nanovg.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../../../src/nanovg.cpp; sourceTree = "<group>"; name = nanovg.cpp; };
-		BB03854BFE0841C08271553A /* SvgRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../../../src/SvgRenderer.cpp; sourceTree = "<group>"; name = SvgRenderer.cpp; };
+		9424A9131A6DFE95008B4747 /* nanovg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg.hpp; sourceTree = "<group>"; };
+		9424A9141A6DFE95008B4747 /* nanovg_gl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nanovg_gl.hpp; sourceTree = "<group>"; };
+		9424A9151A6DFE95008B4747 /* SvgRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SvgRenderer.hpp; sourceTree = "<group>"; };
+		9424A9171A6DFE95008B4747 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg.cpp; sourceTree = "<group>"; };
+		9424A9181A6DFE95008B4747 /* nanovg_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nanovg_gl.cpp; sourceTree = "<group>"; };
+		9424A9191A6DFE95008B4747 /* SvgRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SvgRenderer.cpp; sourceTree = "<group>"; };
+		9A04E76825D547CB8319694E /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		EED851B928EE463A8FA38C3A /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = ../../../deps/nanovg/src/nanovg.h; sourceTree = "<group>"; };
+		FC95106DD9DB4C32AB4D6632 /* nanovg_gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg_gl.h; path = ../../../deps/nanovg/src/nanovg_gl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +80,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				D8B50A3AF4D64CFB8C9B6300 /* NanoVG */,
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
+		03C4AACB228046D2A01476AE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				70593502B96E43A98A7352BC /* fontstash.h */,
+				EED851B928EE463A8FA38C3A /* nanovg.h */,
+				FC95106DD9DB4C32AB4D6632 /* nanovg_gl.h */,
+				0BD6F3B430044B47A7508209 /* nanovg_gl_utils.h */,
+				57F25510EB244EFB98E4A76C /* stb_image.h */,
+				88900466F8D64DA7A300E8AA /* stb_truetype.h */,
+				8B93811432E3487DB8BD209F /* nanovg.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +144,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		257E79959238439789D4C6CF /* deps */ = {
+			isa = PBXGroup;
+			children = (
+				DB46F14EEC4F488E9136D0CE /* nanovg */,
+			);
+			name = deps;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* RenderToTexture */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,72 +163,6 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = RenderToTexture;
-			sourceTree = "<group>";
-		};
-		03C4AACB228046D2A01476AE /* src */ = {
-			isa = PBXGroup;
-			children = (
-				70593502B96E43A98A7352BC /* fontstash.h */,
-				EED851B928EE463A8FA38C3A /* nanovg.h */,
-				FC95106DD9DB4C32AB4D6632 /* nanovg_gl.h */,
-				0BD6F3B430044B47A7508209 /* nanovg_gl_utils.h */,
-				57F25510EB244EFB98E4A76C /* stb_image.h */,
-				88900466F8D64DA7A300E8AA /* stb_truetype.h */,
-				8B93811432E3487DB8BD209F /* nanovg.c */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		DB46F14EEC4F488E9136D0CE /* nanovg */ = {
-			isa = PBXGroup;
-			children = (
-				03C4AACB228046D2A01476AE /* src */,
-			);
-			name = nanovg;
-			sourceTree = "<group>";
-		};
-		257E79959238439789D4C6CF /* deps */ = {
-			isa = PBXGroup;
-			children = (
-				DB46F14EEC4F488E9136D0CE /* nanovg */,
-			);
-			name = deps;
-			sourceTree = "<group>";
-		};
-		2EB2CDEBB4824057BC0F6455 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				0C1B11D2C6944C84BAF17D38 /* nanovg.hpp */,
-				3897D2392CC643B892DB9590 /* SvgRenderer.hpp */,
-			);
-			name = include;
-			sourceTree = "<group>";
-		};
-		A1F2D76B60C94854AEF551F3 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				CB60B410A7E14D17BBDED08C /* nanovg.cpp */,
-				BB03854BFE0841C08271553A /* SvgRenderer.cpp */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		D8B50A3AF4D64CFB8C9B6300 /* NanoVG */ = {
-			isa = PBXGroup;
-			children = (
-				257E79959238439789D4C6CF /* deps */,
-				2EB2CDEBB4824057BC0F6455 /* include */,
-				A1F2D76B60C94854AEF551F3 /* src */,
-			);
-			name = NanoVG;
-			sourceTree = "<group>";
-		};
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				D8B50A3AF4D64CFB8C9B6300 /* NanoVG */,
-			);
-			name = Blocks;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
@@ -235,6 +192,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9424A9121A6DFE95008B4747 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9424A9131A6DFE95008B4747 /* nanovg.hpp */,
+				9424A9141A6DFE95008B4747 /* nanovg_gl.hpp */,
+				9424A9151A6DFE95008B4747 /* SvgRenderer.hpp */,
+			);
+			name = include;
+			path = ../../../include;
+			sourceTree = "<group>";
+		};
+		9424A9161A6DFE95008B4747 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9424A9171A6DFE95008B4747 /* nanovg.cpp */,
+				9424A9181A6DFE95008B4747 /* nanovg_gl.cpp */,
+				9424A9191A6DFE95008B4747 /* SvgRenderer.cpp */,
+			);
+			name = src;
+			path = ../../../src;
+			sourceTree = "<group>";
+		};
+		D8B50A3AF4D64CFB8C9B6300 /* NanoVG */ = {
+			isa = PBXGroup;
+			children = (
+				257E79959238439789D4C6CF /* deps */,
+				9424A9121A6DFE95008B4747 /* include */,
+				9424A9161A6DFE95008B4747 /* src */,
+			);
+			name = NanoVG;
+			sourceTree = "<group>";
+		};
+		DB46F14EEC4F488E9136D0CE /* nanovg */ = {
+			isa = PBXGroup;
+			children = (
+				03C4AACB228046D2A01476AE /* src */,
+			);
+			name = nanovg;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,6 +258,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "RenderToTexture" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -297,9 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A1E740C43E4E538C4B1CC8 /* RenderToTextureApp.cpp in Sources */,
+				9424A91B1A6DFE95008B4747 /* nanovg_gl.cpp in Sources */,
+				9424A91A1A6DFE95008B4747 /* nanovg.cpp in Sources */,
 				29AAD1D703F647A0BCE1F401 /* nanovg.c in Sources */,
-				09DCA078DBD74A17BB91CF3E /* nanovg.cpp in Sources */,
-				B0427CB18E1F4722AE469B78 /* SvgRenderer.cpp in Sources */,
+				9424A91C1A6DFE95008B4747 /* SvgRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,24 +310,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
 				PRODUCT_NAME = RenderToTexture;
-				WRAPPER_EXTENSION = app;
 				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
@@ -341,31 +341,31 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = RenderToTexture_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
 				PRODUCT_NAME = RenderToTexture;
 				STRIP_INSTALLED_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
 				SYMROOT = ./build;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = x86_64;
-				CINDER_PATH = "../../../../..";
+				CINDER_PATH = ../../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
@@ -378,11 +378,11 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = x86_64;
-				CINDER_PATH = "../../../../..";
+				CINDER_PATH = ../../../../..;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";

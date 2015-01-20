@@ -5,7 +5,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Color.h"
 
-#include "nanovg.hpp"
+#include "nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -28,7 +28,7 @@ void HelloSvgApp::prepareSettings(Settings* settings) {
 
 void HelloSvgApp::setup() {
   // Create a NanoVG context without anti-aliasing.
-  mNanoVG = make_shared<nvg::Context>(nvg::Context::create(false));
+  mNanoVG = make_shared<nvg::Context>(nvg::createContextGL(false));
   mDoc = svg::Doc::create(loadAsset("rainbow_dash.svg"));
 }
 

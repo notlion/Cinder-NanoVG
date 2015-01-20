@@ -26,13 +26,10 @@ class Context {
 
   std::unique_ptr<NVGcontext, Deleter> mPtr;
 
-  Context(NVGcontext *ptr, Deleter deleter);
-
   void path2dSegment(Path2d::SegmentType, const vec2 *p1, const vec2 *p2, const vec2 *p3);
 
 public:
-  static Context create(NVGcontext *ptr, Deleter deleter);
-  static Context create(bool antiAlias = true, bool stencilStrokes = false);
+  Context(NVGcontext *ptr, Deleter deleter);
 
   inline NVGcontext* get() { return mPtr.get(); }
 
