@@ -198,7 +198,7 @@ void RenderToTextureApp::draw() {
   vg.fontFace("roboto");
   vg.fontSize(24);
   vg.fillColor(Colorf::white());
-  vg.text(vec2(), "Fps: " + toString(getAverageFps()));
+  vg.text(vec2(), "Fps: " + to_string(getAverageFps()));
   vg.text(vec2(0, -20), "Mode: " + mode);
   vg.endFrame();
 }

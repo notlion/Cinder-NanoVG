@@ -1,6 +1,7 @@
 #include "cinder/app/AppNative.h"
 #include "cinder/app/RendererGl.h"
 
+#include "cinder/svg/Svg.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Color.h"
 
