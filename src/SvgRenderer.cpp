@@ -1,6 +1,8 @@
 #include "nanovg.hpp"
 #include "SvgRenderer.hpp"
 
+#include "nanovg.h"
+
 namespace cinder { namespace nvg {
 
 SvgRenderer::SvgRenderer(Context &ctx) : mCtx{ ctx } {
