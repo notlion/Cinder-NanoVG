@@ -1,19 +1,25 @@
 #pragma once
 
-#include "nanovg.h"
-
 #include "cinder/MatrixAffine2.h"
 #include "cinder/Vector.h"
 #include "cinder/Rect.h"
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 #include "cinder/Shape2d.h"
-#include "cinder/svg/Svg.h"
+
+#include "nanovg.h"
 
 #include <memory>
 #include <string>
 
-namespace cinder { namespace nvg {
+namespace cinder {
+
+namespace svg {
+  class Paint;
+  class Doc;
+} // svg
+
+namespace nvg {
 
 class Context {
   using Deleter = void(*)(NVGcontext*);
