@@ -31,7 +31,7 @@ protected:
 
 public:
   Context(NVGcontext *ptr, Deleter deleter);
-  Context(Context &&ctx);
+  Context(Context&& ctx) : mPtr{ std::move(ctx.mPtr) } {}
 
   // NOTE(ryan): Allow this class to be extended. Backends may want to bundle some associated data.
   // Subclasses will need to provide their own move constructor.
