@@ -22,7 +22,7 @@ namespace svg {
 namespace nvg {
 
 class Context {
-  using Deleter = void(*)(NVGcontext*);
+  using Deleter = void (*)(NVGcontext *);
 
   std::unique_ptr<NVGcontext, Deleter> mPtr;
 
@@ -31,7 +31,7 @@ class Context {
 public:
   Context(NVGcontext *ptr, Deleter deleter);
 
-  inline NVGcontext* get() { return mPtr.get(); }
+  inline NVGcontext *get() { return mPtr.get(); }
 
   // Conversion //
 
@@ -70,8 +70,8 @@ public:
   // Transform //
 
   void resetTransform();
-  void transform(const MatrixAffine2f& mtx);
-  void setTransform(const MatrixAffine2f& mtx);
+  void transform(const MatrixAffine2f &mtx);
+  void setTransform(const MatrixAffine2f &mtx);
   void translate(float x, float y);
   void translate(const vec2 &translation);
   void rotate(float angle);
@@ -84,12 +84,12 @@ public:
 
   // Paints //
 
-  NVGpaint linearGradient(const vec2 &start, const vec2 &end,
-                                 const ColorAf &startColor, const ColorAf &endColor);
-  NVGpaint boxGradient(const Rectf &bounds, float r, float f,
-                              const ColorAf &startColor, const ColorAf &endColor);
+  NVGpaint linearGradient(const vec2 &start, const vec2 &end, const ColorAf &startColor,
+                          const ColorAf &endColor);
+  NVGpaint boxGradient(const Rectf &bounds, float r, float f, const ColorAf &startColor,
+                       const ColorAf &endColor);
   NVGpaint radialGradient(const vec2 &center, float innerRad, float outerRad,
-                                 const ColorAf &innerColor, const ColorAf &outerColor);
+                          const ColorAf &innerColor, const ColorAf &outerColor);
 
   // Scissoring //
 
@@ -114,9 +114,9 @@ public:
   void arc(float cx, float cy, float r, float a0, float a1, int dir);
   void arc(const vec2 &center, float r, float a0, float a1, int dir);
   void rect(float x, float y, float w, float h);
-  void rect(const Rectf& r);
+  void rect(const Rectf &r);
   void roundedRect(float x, float y, float w, float h, float r);
-  void roundedRect(const Rectf& rect, float r);
+  void roundedRect(const Rectf &rect, float r);
   void ellipse(float cx, float cy, float rx, float ry);
   void ellipse(const vec2 &center, float rx, float ry);
   void circle(float cx, float cy, float r);
@@ -127,9 +127,9 @@ public:
 
   // Cinder Types //
 
-  void polyLine(const PolyLine2f& polyline);
-  void path2d(const Path2d& path);
-  void shape2d(const Shape2d& shape);
+  void polyLine(const PolyLine2f &polyline);
+  void path2d(const Path2d &path);
+  void shape2d(const Shape2d &shape);
 
   // Cinder SVG //
 
@@ -137,27 +137,27 @@ public:
 
   // Text //
 
-  int createFont(const std::string& name, const std::string& filename);
-  int findFont(const std::string& name);
+  int createFont(const std::string &name, const std::string &filename);
+  int findFont(const std::string &name);
 
   void fontSize(float size);
   void fontBlur(float blur);
   void fontFaceId(int font);
-  void fontFace(const std::string& font);
+  void fontFace(const std::string &font);
 
   void textLetterSpacing(float spacing);
   void textLineHeight(float lineHeight);
   void textAlign(int align);
 
-  float text(float x, float y, const std::string& str);
-  float text(const vec2 &p, const std::string& str);
+  float text(float x, float y, const std::string &str);
+  float text(const vec2 &p, const std::string &str);
 
-  void textBox(float x, float y, float breakRowWidth, const std::string& str);
-  void textBox(const vec2 &p, float breakRowWidth, const std::string& str);
-  void textBox(const Rectf &rect, const std::string& str);
+  void textBox(float x, float y, float breakRowWidth, const std::string &str);
+  void textBox(const vec2 &p, float breakRowWidth, const std::string &str);
+  void textBox(const Rectf &rect, const std::string &str);
 
-  Rectf textBounds(float x, float y, const std::string& str);
-  Rectf textBounds(const vec2 &p, const std::string& str);
+  Rectf textBounds(float x, float y, const std::string &str);
+  Rectf textBounds(const vec2 &p, const std::string &str);
 
   Rectf textBoxBounds(float x, float y, float breakRowWidth, const std::string &str);
   Rectf textBoxBounds(const vec2 &p, float breakRowWidth, const std::string &str);
