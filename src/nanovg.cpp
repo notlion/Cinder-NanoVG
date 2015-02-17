@@ -7,6 +7,9 @@ namespace nvg {
 Context::Context(NVGcontext *ptr, Deleter deleter) : mPtr{ ptr, deleter } {
 }
 
+Context::Context(Context &&ctx) : mPtr{ std::move(ctx.mPtr) } {
+}
+
 // svg::Paint to NVGpaint conversion.
 // Currently only works for 2-color linear gradients.
 NVGpaint Context::convert(const svg::Paint &paint) {
@@ -375,4 +378,5 @@ Rectf Context::textBoxBounds(const vec2 &p, float breakRowWidth, const std::stri
 Rectf Context::textBoxBounds(const Rectf &rect, const std::string &str) {
   return textBoxBounds(rect.getX1(), rect.getY1(), rect.getWidth(), str);
 }
+
 }} // cinder::nvg

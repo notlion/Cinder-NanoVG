@@ -22,6 +22,7 @@ namespace svg {
 namespace nvg {
 
 class Context {
+protected:
   using Deleter = void (*)(NVGcontext *);
 
   std::unique_ptr<NVGcontext, Deleter> mPtr;
@@ -30,6 +31,11 @@ class Context {
 
 public:
   Context(NVGcontext *ptr, Deleter deleter);
+  Context(Context &&ctx);
+
+  // NOTE(ryan): Allow this class to be extended. Backends may want to bundle some associated data.
+  // Subclasses will need to provide their own move constructor.
+  virtual ~Context() = default;
 
   inline NVGcontext *get() { return mPtr.get(); }
 
