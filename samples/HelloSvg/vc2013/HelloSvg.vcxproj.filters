@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{BB9A55AD-8FA7-4F30-8F9F-780045109C5C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG">
+      <UniqueIdentifier>{AB1F23FD-A5B5-4F7D-8D71-DD9A62ED0258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps">
+      <UniqueIdentifier>{26C36270-E406-450A-AFB9-DED137240C8B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps\nanovg">
+      <UniqueIdentifier>{29AB8208-A991-4CC7-AD9E-7BD832D21BB4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps\nanovg\src">
+      <UniqueIdentifier>{F71A4127-E51F-45F3-B4AD-B5B50F276B8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\include">
+      <UniqueIdentifier>{9FC46B72-A0DE-43BD-AE50-D29F3158E113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\src">
+      <UniqueIdentifier>{3E15D332-5B06-4133-820B-D3B39A12951B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\HelloSvgApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HelloSvgApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\fontstash.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg_gl.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg_gl_utils.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\stb_image.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\stb_truetype.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\deps\nanovg\src\nanovg.c">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\include\SvgRenderer.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\ciNanovg.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ciNanovg_gl.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SvgRenderer.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ciNanovg.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ciNanovg_gl.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
