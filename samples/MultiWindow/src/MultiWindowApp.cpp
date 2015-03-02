@@ -6,7 +6,7 @@
 #include "cinder/PolyLine.h"
 #include "cinder/Rand.h"
 
-#include "nanovg_gl.hpp"
+#include "ciNanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;

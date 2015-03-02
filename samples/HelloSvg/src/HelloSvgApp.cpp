@@ -5,7 +5,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/Color.h"
 
-#include "nanovg_gl.hpp"
+#include "ciNanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
