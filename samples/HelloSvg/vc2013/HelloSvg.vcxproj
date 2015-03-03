@@ -10,7 +10,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4F5A1AC5-6C70-4987-B8F0-B2C2B3B3456C}</ProjectGuid>
+    <ProjectGuid>{5B309D62-47AC-4589-ACEB-83FB5E853DF7}</ProjectGuid>
     <RootNamespace>HelloSvg</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>

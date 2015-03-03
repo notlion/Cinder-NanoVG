@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 
 #include "cinder/gl/gl.h"
@@ -85,7 +85,7 @@ public:
   }
 };
 
-class RenderToTextureApp : public AppNative {
+class RenderToTextureApp : public App {
   shared_ptr<nvg::Context> mCtx;
   vector<shared_ptr<Shape>> mShapes;
   vector<shared_ptr<ShapeProxy>> mProxies;
@@ -95,16 +95,10 @@ class RenderToTextureApp : public AppNative {
 public:
   void generateShapes();
   void generateShapeTextures();
-  void prepareSettings(Settings* settings) override;
   void setup() override;
-	void update() override;
-	void draw() override;
+  void update() override;
+  void draw() override;
 };
-
-void RenderToTextureApp::prepareSettings(Settings* settings) {
-  settings->enableHighDensityDisplay();
-  settings->enableMultiTouch();
-}
 
 void RenderToTextureApp::generateShapes() {
   auto generatePath = [](float radius, int numPoints) {
@@ -206,5 +200,8 @@ void RenderToTextureApp::draw() {
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
 // own anti-aliasing by default. We disable opengl's AA and enable stencil here
 // to allow for this.
-CINDER_APP_NATIVE(RenderToTextureApp, RendererGl(
-  RendererGl::Options().stencil().msaa(0)))
+CINDER_APP(RenderToTextureApp, RendererGl(RendererGl::Options().stencil().msaa(0)),
+           [](App::Settings *settings) {
+  settings->setHighDensityDisplayEnabled();
+  settings->setMultiTouchEnabled();
+})

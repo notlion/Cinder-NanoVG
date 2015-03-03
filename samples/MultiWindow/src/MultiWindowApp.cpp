@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
@@ -36,18 +36,13 @@ struct WindowData {
   }
 };
 
-class MultiWindowApp : public AppNative {
+class MultiWindowApp : public App {
 public:
-  void prepareSettings(Settings* settings);
   void setup();
   void update();
   void draw();
   void spawnWindow();
 };
-
-void MultiWindowApp::prepareSettings(Settings* settings) {
-  settings->enableHighDensityDisplay();
-}
 
 void MultiWindowApp::setup() {
   getWindow()->setUserData(new WindowData(getNumWindows()));
@@ -92,5 +87,5 @@ void MultiWindowApp::draw() {
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
 // own anti-aliasing by default. We disable opengl's AA and enable stencil here
 // to allow for this.
-CINDER_APP_NATIVE(MultiWindowApp, RendererGl(
-  RendererGl::Options().stencil().msaa(0)))
+CINDER_APP(MultiWindowApp, RendererGl(RendererGl::Options().stencil().msaa(0)),
+           [](App::Settings *settings) { settings->setHighDensityDisplayEnabled(); })

@@ -13,25 +13,25 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
     <Filter Include="Blocks">
-      <UniqueIdentifier>{EBF8E34E-BB9F-4E9B-9586-471D6D81ADF6}</UniqueIdentifier>
+      <UniqueIdentifier>{6FCC77A2-EF61-4F33-8C23-6A1280F8B0EF}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG">
-      <UniqueIdentifier>{C25E2C85-36A3-4502-AF76-E5D844E3CD1E}</UniqueIdentifier>
+      <UniqueIdentifier>{CD8246B3-515C-4D32-9459-AC4E5EA8C6B0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG\deps">
-      <UniqueIdentifier>{9B02C6C6-B97F-4D97-86FA-55188EB4043A}</UniqueIdentifier>
+      <UniqueIdentifier>{605FBD4F-03FF-40DC-B2F5-4B77F921F129}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG\deps\nanovg">
-      <UniqueIdentifier>{163CCD2B-714D-4E6D-8579-35B1D243C240}</UniqueIdentifier>
+      <UniqueIdentifier>{47CF133D-D04C-4714-BE21-C0C529B349F4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG\deps\nanovg\src">
-      <UniqueIdentifier>{5DACBB74-8F00-4072-8C91-982D524FBB41}</UniqueIdentifier>
+      <UniqueIdentifier>{2C8ED4FB-EBFA-4C2C-A93B-69A93ED2EE3E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG\include">
-      <UniqueIdentifier>{F4F4CDF5-BFC6-4694-9F4B-9ADA8173192C}</UniqueIdentifier>
+      <UniqueIdentifier>{486C5064-BF38-415A-B2EC-2E432F20DBF4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Blocks\NanoVG\src">
-      <UniqueIdentifier>{82E2CA85-23E7-4DB3-832A-238DBEF8F2BC}</UniqueIdentifier>
+      <UniqueIdentifier>{A789EB07-CB79-4AB7-B4F7-97BED48CFE75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 
 #include "cinder/svg/Svg.h"
@@ -11,20 +11,15 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class HelloSvgApp : public AppNative {
+class HelloSvgApp : public App {
   shared_ptr<nvg::Context> mNanoVG;
   svg::DocRef mDoc;
 
 public:
-  void prepareSettings(Settings* settings);
   void setup();
   void update();
   void draw();
 };
-
-void HelloSvgApp::prepareSettings(Settings* settings) {
-  settings->enableHighDensityDisplay();
-}
 
 void HelloSvgApp::setup() {
   // Create a NanoVG context without anti-aliasing.
@@ -51,5 +46,5 @@ void HelloSvgApp::draw() {
 }
 
 // Since we are disabling anti-aliasing in NanoVG, we enable MSAA here.
-CINDER_APP_NATIVE(HelloSvgApp, RendererGl(
-  RendererGl::Options().msaa(4).stencil()))
+CINDER_APP(HelloSvgApp, RendererGl(RendererGl::Options().stencil().msaa(4)),
+           [](App::Settings *settings) { settings->setHighDensityDisplayEnabled(); })

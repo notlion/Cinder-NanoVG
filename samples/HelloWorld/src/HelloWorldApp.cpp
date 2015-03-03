@@ -1,4 +1,4 @@
-#include "cinder/app/AppNative.h"
+#include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
@@ -11,9 +11,8 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class HelloWorldApp : public AppNative {
+class HelloWorldApp : public App {
 public:
-  void prepareSettings(Settings* settings);
   void setup();
   void update();
   void draw();
@@ -22,10 +21,6 @@ private:
   std::shared_ptr<nvg::Context> mNanoVG;
   PolyLine2f mTriangle;
 };
-
-void HelloWorldApp::prepareSettings(Settings* settings) {
-  settings->enableHighDensityDisplay();
-}
 
 void HelloWorldApp::setup() {
   // We return a value from nvg::createContextGL() in order to remain
@@ -123,5 +118,5 @@ void HelloWorldApp::draw() {
 // NanoVG requires a stencil buffer in the main framebuffer and performs it's
 // own anti-aliasing by default. We disable opengl's AA and enable stencil here
 // to allow for this.
-CINDER_APP_NATIVE(HelloWorldApp, RendererGl(
-  RendererGl::Options().stencil().msaa(0)))
+CINDER_APP(HelloWorldApp, RendererGl(RendererGl::Options().stencil().msaa(0)),
+           [](App::Settings *settings) { settings->setHighDensityDisplayEnabled(); })

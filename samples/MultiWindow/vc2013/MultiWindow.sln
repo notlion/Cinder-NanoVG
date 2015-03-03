@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiWindow", "MultiWindow.vcxproj", "{B72F81D0-07E9-41F4-90C6-22EEFD806D01}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiWindow", "MultiWindow.vcxproj", "{A4BABEF0-D849-41B2-84AB-E0143F0C7D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B72F81D0-07E9-41F4-90C6-22EEFD806D01}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B72F81D0-07E9-41F4-90C6-22EEFD806D01}.Debug|Win32.Build.0 = Debug|Win32
-		{B72F81D0-07E9-41F4-90C6-22EEFD806D01}.Release|Win32.ActiveCfg = Release|Win32
-		{B72F81D0-07E9-41F4-90C6-22EEFD806D01}.Release|Win32.Build.0 = Release|Win32
+		{A4BABEF0-D849-41B2-84AB-E0143F0C7D3E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A4BABEF0-D849-41B2-84AB-E0143F0C7D3E}.Debug|Win32.Build.0 = Debug|Win32
+		{A4BABEF0-D849-41B2-84AB-E0143F0C7D3E}.Release|Win32.ActiveCfg = Release|Win32
+		{A4BABEF0-D849-41B2-84AB-E0143F0C7D3E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
