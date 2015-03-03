@@ -1,6 +1,6 @@
 #pragma once
 
-#include "nanovg.hpp"
+#include "ci_nanovg.hpp"
 
 namespace cinder { namespace nvg {
 

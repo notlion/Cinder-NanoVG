@@ -5,7 +5,7 @@
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 
-#include "nanovg_gl.hpp"
+#include "ci_nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -103,7 +103,7 @@ void HelloWorldApp::draw() {
   {
     float r = 200.0f;
     vg.beginPath();
-    vg.arc(0, 0, r, -M_PI_2, fmod(time, M_PI * 2.0f) - M_PI_2, NVG_CW);
+    vg.arc(0, 0, r, -M_PI * 0.5f, fmod(time, M_PI * 2.0f) - M_PI * 0.5f, NVG_CW);
     vg.strokeColor(ColorAf{1.0f, 1.0f, 1.0f});
     vg.strokeWidth(2);
     vg.stroke();

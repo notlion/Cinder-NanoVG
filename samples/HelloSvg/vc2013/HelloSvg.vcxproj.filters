@@ -1,0 +1,97 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{9A0B6722-0F54-4720-9D09-A92E1762226D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG">
+      <UniqueIdentifier>{B8317BE6-ACA6-4AE0-BCC6-AA5C2C04CF80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps">
+      <UniqueIdentifier>{367EFECC-6932-4EAC-B315-64418E1CD290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps\nanovg">
+      <UniqueIdentifier>{F8AFE06A-A3DD-4729-A586-BB2ABA6CDD1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\deps\nanovg\src">
+      <UniqueIdentifier>{C145A4BE-2ABF-4798-8BD0-D27C42589281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\include">
+      <UniqueIdentifier>{1C3333BB-D70B-405D-8B3D-640A0C985E6F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\NanoVG\src">
+      <UniqueIdentifier>{60DB34A5-329D-43B0-975C-F6A245C6924F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\HelloSvgApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HelloSvgApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\fontstash.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg_gl.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\nanovg_gl_utils.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\stb_image.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\deps\nanovg\src\stb_truetype.h">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\deps\nanovg\src\nanovg.c">
+      <Filter>Blocks\NanoVG\deps\nanovg\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\include\ci_nanovg.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\ci_nanovg_gl.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\SvgRenderer.hpp">
+      <Filter>Blocks\NanoVG\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\src\ci_nanovg.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ci_nanovg_gl.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\SvgRenderer.cpp">
+      <Filter>Blocks\NanoVG\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-#include "nanovg_gl.hpp"
+#include "ci_nanovg_gl.hpp"
 
 #include "cinder/gl/gl.h"
 

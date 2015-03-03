@@ -9,7 +9,7 @@
 #include "cinder/Rand.h"
 #include "cinder/BSpline.h"
 
-#include "nanovg_gl.hpp"
+#include "ci_nanovg_gl.hpp"
 
 using namespace ci;
 using namespace ci::app;

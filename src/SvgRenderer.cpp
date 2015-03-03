@@ -1,4 +1,4 @@
-#include "nanovg.hpp"
+#include "ci_nanovg.hpp"
 #include "SvgRenderer.hpp"
 
 #include "nanovg.h"
