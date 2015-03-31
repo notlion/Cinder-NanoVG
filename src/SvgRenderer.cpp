@@ -169,7 +169,9 @@ void SvgRenderer::popStrokeWidth() {
   mStrokeWidthStack.pop_back();
 }
 
-void SvgRenderer::pushFillRule(svg::FillRule) {}
+void SvgRenderer::pushFillRule(svg::FillRule) {
+  // NOTE(ryan): Fill rules other than even-odd are not supported by NanoVG.
+}
 void SvgRenderer::popFillRule() {}
 
 void SvgRenderer::pushLineCap(svg::LineCap lineCap) {
