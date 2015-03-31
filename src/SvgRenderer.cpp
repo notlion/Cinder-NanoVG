@@ -6,7 +6,7 @@
 namespace cinder { namespace nvg {
 
 SvgRenderer::SvgRenderer(Context &ctx) : mCtx{ ctx } {
-  mMatrixStack.emplace_back(MatrixAffine2f::identity());
+  mMatrixStack.emplace_back(mat3(1));
   mFillStack.push_back(svg::Paint(Color::black()));
   mStrokeStack.push_back(svg::Paint());
   mFillOpacityStack.push_back(1.0f);
@@ -126,8 +126,8 @@ void SvgRenderer::drawEllipse(const svg::Ellipse &ellipse) {
 }
 
 
-void SvgRenderer::pushMatrix(const MatrixAffine2f &top) {
-  MatrixAffine2f m = mMatrixStack.back() * top;
+void SvgRenderer::pushMatrix(const mat3 &top) {
+  mat3 m = mMatrixStack.back() * top;
   mMatrixStack.emplace_back(m);
 }
 void SvgRenderer::popMatrix() {
@@ -169,11 +169,8 @@ void SvgRenderer::popStrokeWidth() {
   mStrokeWidthStack.pop_back();
 }
 
-void SvgRenderer::pushFillRule(svg::FillRule rule) {
-  // Fill rules other than even-odd are not supported by NanoVG.
-}
-void SvgRenderer::popFillRule() {
-}
+void SvgRenderer::pushFillRule(svg::FillRule) {}
+void SvgRenderer::popFillRule() {}
 
 void SvgRenderer::pushLineCap(svg::LineCap lineCap) {
   int cap = lineCap == svg::LINE_CAP_ROUND  ? NVG_ROUND :
