@@ -10,7 +10,7 @@ class Context;
 class SvgRenderer : public svg::Renderer {
   Context &mCtx; // TODO(ryan): This should probably be a managed pointer..
 
-  std::vector<MatrixAffine2f> mMatrixStack;
+  std::vector<mat3> mMatrixStack;
   std::vector<svg::Paint> mFillStack, mStrokeStack;
   std::vector<float> mFillOpacityStack, mStrokeOpacityStack;
   std::vector<float> mStrokeWidthStack;
@@ -36,7 +36,7 @@ public:
   void drawImage(const svg::Image &image) override {}
   void drawTextSpan(const svg::TextSpan &span) override {}
 
-  void pushMatrix(const MatrixAffine2f &m) override;
+  void pushMatrix(const mat3 &m) override;
   void popMatrix() override;
   void pushStyle(const svg::Style &style) override {};
   void popStyle(const svg::Style &style) override {};

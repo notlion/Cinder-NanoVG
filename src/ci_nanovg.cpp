@@ -160,10 +160,10 @@ void Context::lineJoin(int join) {
 void Context::resetTransform() {
   nvgResetTransform(get());
 }
-void Context::transform(const MatrixAffine2f &mtx) {
-  nvgTransform(get(), mtx[0], mtx[1], mtx[2], mtx[3], mtx[4], mtx[5]);
+void Context::transform(const mat3 &mtx) {
+  nvgTransform(get(), mtx[0][0], mtx[0][1], mtx[1][0], mtx[1][1], mtx[2][0], mtx[2][1]);
 }
-void Context::setTransform(const MatrixAffine2f &mtx) {
+void Context::setTransform(const mat3 &mtx) {
   resetTransform();
   transform(mtx);
 }
@@ -189,9 +189,9 @@ void Context::scale(const vec2 &s) {
   scale(s.x, s.y);
 }
 
-MatrixAffine2f Context::currentTransform() {
-  MatrixAffine2f xform;
-  nvgCurrentTransform(get(), &xform[0]);
+mat3 Context::currentTransform() {
+  mat3 xform;
+  nvgCurrentTransform(get(), &xform[0][0]);
   return xform;
 }
 

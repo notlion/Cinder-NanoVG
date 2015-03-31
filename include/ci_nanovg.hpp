@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cinder/MatrixAffine2.h"
+#include "cinder/Matrix.h"
 #include "cinder/Vector.h"
 #include "cinder/Rect.h"
 #include "cinder/Color.h"
@@ -76,8 +76,8 @@ public:
   // Transform //
 
   void resetTransform();
-  void transform(const MatrixAffine2f &mtx);
-  void setTransform(const MatrixAffine2f &mtx);
+  void transform(const mat3 &mtx);
+  void setTransform(const mat3 &mtx);
   void translate(float x, float y);
   void translate(const vec2 &translation);
   void rotate(float angle);
@@ -86,7 +86,7 @@ public:
   void scale(float x, float y);
   void scale(const vec2 &s);
 
-  MatrixAffine2f currentTransform();
+  mat3 currentTransform();
 
   // Paints //
 
