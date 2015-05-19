@@ -164,9 +164,11 @@ void SvgRenderer::popStrokeOpacity() {
 
 void SvgRenderer::pushStrokeWidth(float width) {
   mStrokeWidthStack.emplace_back(width);
+  mCtx.strokeWidth(width);
 }
 void SvgRenderer::popStrokeWidth() {
   mStrokeWidthStack.pop_back();
+  mCtx.strokeWidth(mStrokeWidthStack.back());
 }
 
 void SvgRenderer::pushFillRule(svg::FillRule) {
