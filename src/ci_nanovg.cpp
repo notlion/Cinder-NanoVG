@@ -4,6 +4,23 @@
 namespace cinder {
 namespace nvg {
 
+Image::Image(Image &&image) : mCtx{ image.mCtx }, id{ image.id } {
+  image.mCtx = nullptr;
+}
+
+Image &Image::operator=(Image &&image) {
+  mCtx = image.mCtx;
+  id = image.id;
+  image.mCtx = nullptr;
+  return *this;
+}
+
+Image::Image(NVGcontext *ctx, int id) : mCtx{ ctx }, id{ id } {}
+
+Image::~Image() {
+  if (mCtx) nvgDeleteImage(mCtx, id);
+}
+
 Context::Context(NVGcontext *ptr, Deleter deleter) : mPtr{ ptr, deleter } {
 }
 
@@ -216,6 +233,11 @@ NVGpaint Context::radialGradient(const vec2 &center, float innerRad, float outer
   return nvgRadialGradient(get(), center.x, center.y, innerRad, outerRad,
                            reinterpret_cast<const NVGcolor&>(innerColor),
                            reinterpret_cast<const NVGcolor&>(outerColor));
+}
+
+NVGpaint Context::imagePattern(float cx, float cy, float w, float h, float angle,
+                               const Image &image, float alpha) {
+  return nvgImagePattern(get(), cx, cy, w, h, angle, image.id, alpha);
 }
 
 // Scissoring //

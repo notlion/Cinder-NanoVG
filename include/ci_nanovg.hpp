@@ -21,6 +21,24 @@ namespace svg {
 
 namespace nvg {
 
+class Image {
+protected:
+  NVGcontext *mCtx = nullptr;
+
+  Image(const Image &) = delete;
+  Image &operator=(const Image &) = delete;
+
+public:
+  int id;
+
+  Image() = default;
+  Image(Image &&image);
+  Image(NVGcontext *ctx, int id);
+  ~Image();
+
+  Image &operator=(Image &&image);
+};
+
 class Context {
 protected:
   using Deleter = void (*)(NVGcontext *);
@@ -96,6 +114,9 @@ public:
                        const ColorAf &endColor);
   NVGpaint radialGradient(const vec2 &center, float innerRad, float outerRad,
                           const ColorAf &innerColor, const ColorAf &outerColor);
+
+  NVGpaint imagePattern(float cx, float cy, float w, float h, float angle, const Image &image,
+                        float alpha);
 
   // Scissoring //
 
