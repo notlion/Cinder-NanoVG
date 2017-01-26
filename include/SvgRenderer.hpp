@@ -39,7 +39,7 @@ public:
   void pushMatrix(const mat3 &m) override;
   void popMatrix() override;
   void pushStyle(const svg::Style &style) override {};
-  void popStyle(const svg::Style &style) override {};
+  void popStyle() override {};
   void pushFill(const class svg::Paint &paint) override;
   void popFill() override;
   void pushStroke(const class svg::Paint &paint) override;
