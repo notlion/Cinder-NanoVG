@@ -11,10 +11,14 @@ class SvgRenderer : public svg::Renderer {
   Context &mCtx; // TODO(ryan): This should probably be a managed pointer..
 
   std::vector<mat3> mMatrixStack;
+
   std::vector<svg::Paint> mFillStack, mStrokeStack;
   std::vector<float> mFillOpacityStack, mStrokeOpacityStack;
   std::vector<float> mStrokeWidthStack;
   std::vector<int> mLineJoinStack, mLineCapStack;
+
+  std::vector<vec2> mTextPenStack;
+  std::vector<float> mTextRotationStack;
 
 public:
   SvgRenderer(Context &ctx);
@@ -34,7 +38,7 @@ public:
   void drawCircle(const svg::Circle &circle) override;
   void drawEllipse(const svg::Ellipse &ellipse) override;
   void drawImage(const svg::Image &image) override {}
-  void drawTextSpan(const svg::TextSpan &span) override {}
+  void drawTextSpan(const svg::TextSpan &span) override;
 
   void pushMatrix(const mat3 &m) override;
   void popMatrix() override;
@@ -57,11 +61,10 @@ public:
   void pushLineJoin(svg::LineJoin lineJoin) override;
   void popLineJoin() override;
 
-  // TODO(ryan): Implement text rendering
-  void pushTextPen(const vec2 &penPos) override {}
-  void popTextPen() override {}
-  void pushTextRotation(float rotation) override {}
-  void popTextRotation() override {}
+  void pushTextPen(const vec2 &penPos) override;
+  void popTextPen() override;
+  void pushTextRotation(float rotation) override;
+  void popTextRotation() override;
 };
 
 }} // cinder::nvg

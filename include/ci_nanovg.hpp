@@ -170,6 +170,7 @@ public:
 
   // Text //
 
+  int createFont(const std::string &name, const fs::path &filepath);
   int createFont(const std::string &name, const std::string &filename);
   int findFont(const std::string &name);
 

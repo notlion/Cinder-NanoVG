@@ -6,15 +6,20 @@
 namespace cinder { namespace nvg {
 
 SvgRenderer::SvgRenderer(Context &ctx) : mCtx{ ctx } {
-  mMatrixStack.emplace_back(mat3(1));
+  mMatrixStack.push_back(mCtx.currentTransform());
+
   mFillStack.push_back(svg::Paint(Color::black()));
   mStrokeStack.push_back(svg::Paint());
+
   mFillOpacityStack.push_back(1.0f);
   mStrokeOpacityStack.push_back(1.0f);
   mStrokeWidthStack.push_back(1.0f);
 
   pushLineCap(svg::LINE_CAP_BUTT);
   pushLineJoin(svg::LINE_JOIN_MITER);
+
+  pushTextPen(vec2());
+  pushTextRotation(0.0f);
 }
 
 
@@ -125,45 +130,60 @@ void SvgRenderer::drawEllipse(const svg::Ellipse &ellipse) {
   fillAndStroke();
 }
 
+void SvgRenderer::drawTextSpan(const svg::TextSpan &span) {
+  mCtx.save();
+  mCtx.rotate(toRadians(mTextRotationStack.back()));
+
+  // TODO(ryan): This font size multiplier was just guessed based on how the test text looked and
+  // may not be correct. Check with other fonts / sizes.
+  mCtx.fontSize(span.getFontSize().asUser() * 1.1666f);
+
+  mCtx.fillColor(span.getFill().getColor());
+  mCtx.textAlign(NVG_ALIGN_LEFT | NVG_ALIGN_BOTTOM);
+  mCtx.text(mTextPenStack.back(), span.getString());
+  mCtx.restore();
+}
+
 
 void SvgRenderer::pushMatrix(const mat3 &top) {
-  mat3 m = mMatrixStack.back() * top;
-  mMatrixStack.emplace_back(m);
+  mMatrixStack.push_back(mMatrixStack.back() * top);
+  mCtx.setTransform(mMatrixStack.back());
 }
 void SvgRenderer::popMatrix() {
   mMatrixStack.pop_back();
+  mCtx.setTransform(mMatrixStack.back());
 }
 
 void SvgRenderer::pushFill(const class svg::Paint &paint) {
-  mFillStack.emplace_back(paint);
+  mFillStack.push_back(paint);
 }
 void SvgRenderer::popFill() {
   mFillStack.pop_back();
 }
 
 void SvgRenderer::pushStroke(const class svg::Paint &paint) {
-  mStrokeStack.emplace_back(paint);
+  mStrokeStack.push_back(paint);
 }
 void SvgRenderer::popStroke() {
   mStrokeStack.pop_back();
 }
 
 void SvgRenderer::pushFillOpacity(float opacity ) {
-  mFillOpacityStack.emplace_back(opacity);
+  mFillOpacityStack.push_back(opacity);
 }
 void SvgRenderer::popFillOpacity() {
   mFillOpacityStack.pop_back();
 }
 
 void SvgRenderer::pushStrokeOpacity(float opacity) {
-  mStrokeOpacityStack.emplace_back(opacity);
+  mStrokeOpacityStack.push_back(opacity);
 }
 void SvgRenderer::popStrokeOpacity() {
   mStrokeOpacityStack.pop_back();
 }
 
 void SvgRenderer::pushStrokeWidth(float width) {
-  mStrokeWidthStack.emplace_back(width);
+  mStrokeWidthStack.push_back(width);
   mCtx.strokeWidth(width);
 }
 void SvgRenderer::popStrokeWidth() {
@@ -179,7 +199,7 @@ void SvgRenderer::popFillRule() {}
 void SvgRenderer::pushLineCap(svg::LineCap lineCap) {
   int cap = lineCap == svg::LINE_CAP_ROUND  ? NVG_ROUND :
             lineCap == svg::LINE_CAP_SQUARE ? NVG_SQUARE : NVG_BUTT;
-  mLineCapStack.emplace_back(cap);
+  mLineCapStack.push_back(cap);
   mCtx.lineCap(cap);
 }
 void SvgRenderer::popLineCap() {
@@ -190,12 +210,28 @@ void SvgRenderer::popLineCap() {
 void SvgRenderer::pushLineJoin(svg::LineJoin lineJoin) {
   int join = lineJoin == svg::LINE_JOIN_ROUND ? NVG_ROUND :
              lineJoin == svg::LINE_JOIN_BEVEL ? NVG_BEVEL : NVG_MITER;
-  mLineJoinStack.emplace_back(join);
+  mLineJoinStack.push_back(join);
   mCtx.lineJoin(join);
 }
 void SvgRenderer::popLineJoin() {
   mLineJoinStack.pop_back();
   mCtx.lineJoin(mLineJoinStack.back());
+}
+
+void SvgRenderer::pushTextPen(const vec2 &penPos) {
+  mTextPenStack.push_back(penPos);
+}
+
+void SvgRenderer::popTextPen() {
+  mTextPenStack.pop_back();
+}
+
+void SvgRenderer::pushTextRotation(float rotation) {
+  mTextRotationStack.push_back(rotation);
+}
+
+void SvgRenderer::popTextRotation() {
+  mTextRotationStack.pop_back();
 }
 
 }} // cinder::nvg

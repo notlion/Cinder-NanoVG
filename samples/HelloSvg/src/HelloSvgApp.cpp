@@ -24,6 +24,7 @@ public:
 void HelloSvgApp::setup() {
   // Create a NanoVG context without anti-aliasing.
   mNanoVG = make_shared<nvg::Context>(nvg::createContextGL(false));
+  mNanoVG->createFont("Roboto", getAssetPath("Roboto-Regular.ttf"));
   mDoc = svg::Doc::create(loadAsset("rainbow_dash.svg"));
 }
 
@@ -34,13 +35,11 @@ void HelloSvgApp::draw() {
   gl::clear(Color{0, 0, 0});
   gl::clear(GL_STENCIL_BUFFER_BIT);
 
-  auto time = getElapsedSeconds();
-
   mNanoVG->beginFrame(getWindowSize(), getWindowContentScale());
   mNanoVG->translate(getWindowCenter());
-  mNanoVG->scale(vec2(lmap<float>(sinf(time * 2), -1, 1, 1, 2)));
-  mNanoVG->rotate(time * 0.5);
+  mNanoVG->scale(vec2(0.75f * float(getWindowHeight()) / float(mDoc->getHeight())));
   mNanoVG->translate(-mDoc->getBounds().getCenter());
+  mNanoVG->fontFace("Roboto");
   mNanoVG->draw(*mDoc);
   mNanoVG->endFrame();
 }

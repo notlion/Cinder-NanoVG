@@ -21,8 +21,7 @@ Image::~Image() {
   if (mCtx) nvgDeleteImage(mCtx, id);
 }
 
-Context::Context(NVGcontext *ptr, Deleter deleter) : mPtr{ ptr, deleter } {
-}
+Context::Context(NVGcontext *ptr, Deleter deleter) : mPtr{ ptr, deleter } {}
 
 // svg::Paint to NVGpaint conversion.
 // Currently only works for 2-color linear gradients.
@@ -64,16 +63,22 @@ void Context::polyLine(const PolyLine2f &polyline) {
   }
 }
 
-void Context::path2dSegment(Path2d::SegmentType type, const vec2 *p1,
-                                                      const vec2 *p2,
-                                                      const vec2 *p3) {
+void Context::path2dSegment(Path2d::SegmentType type, const vec2 *p1, const vec2 *p2,
+                            const vec2 *p3) {
   switch (type) {
-    case Path2d::MOVETO:  moveTo(*p3); break;
-    case Path2d::QUADTO:  quadTo(*p2, *p3); break;
-    case Path2d::CUBICTO: bezierTo(*p1, *p2, *p3); break;
+    case Path2d::MOVETO:
+      moveTo(*p3);
+      break;
+    case Path2d::QUADTO:
+      quadTo(*p2, *p3);
+      break;
+    case Path2d::CUBICTO:
+      bezierTo(*p1, *p2, *p3);
+      break;
     case Path2d::LINETO:
     case Path2d::CLOSE:
-      lineTo(*p3); break;
+      lineTo(*p3);
+      break;
   }
 }
 
@@ -219,32 +224,28 @@ void Context::scale(const vec2 &s) {
 }
 
 mat3 Context::currentTransform() {
-  mat3 xform;
-  nvgCurrentTransform(get(), &xform[0][0]);
-  return xform;
+  float m[6];
+  nvgCurrentTransform(get(), m);
+  return mat3(m[0], m[1], 0.0f, m[2], m[3], 0.0f, m[4], m[5], 1.0f);
 }
 
 // Paints //
 
-NVGpaint Context::linearGradient(const vec2 &start, const vec2 &end,
-                                 const ColorAf &startColor, const ColorAf &endColor) {
-  return nvgLinearGradient(get(), start.x, start.y, end.x, end.y,
-                           reinterpret_cast<const NVGcolor &>(startColor),
-                           reinterpret_cast<const NVGcolor &>(endColor));
+NVGpaint Context::linearGradient(const vec2 &start, const vec2 &end, const ColorAf &c1,
+                                 const ColorAf &c2) {
+  return nvgLinearGradient(get(), start.x, start.y, end.x, end.y, nvgRGBAf(c1.r, c1.g, c1.b, c1.a),
+                           nvgRGBAf(c2.r, c2.g, c2.b, c2.a));
 }
-NVGpaint Context::boxGradient(const Rectf &bounds, float r, float f,
-                              const ColorAf &startColor, const ColorAf &endColor) {
-  return nvgBoxGradient(get(), bounds.getX1(), bounds.getY1(),
-                        bounds.getWidth(), bounds.getWidth(),
-                        r, f,
-                        reinterpret_cast<const NVGcolor&>(startColor),
-                        reinterpret_cast<const NVGcolor&>(endColor));
+NVGpaint Context::boxGradient(const Rectf &bounds, float r, float f, const ColorAf &c1,
+                              const ColorAf &c2) {
+  return nvgBoxGradient(get(), bounds.getX1(), bounds.getY1(), bounds.getWidth(), bounds.getWidth(),
+                        r, f, nvgRGBAf(c1.r, c1.g, c1.b, c1.a), nvgRGBAf(c2.r, c2.g, c2.b, c2.a));
 }
 NVGpaint Context::radialGradient(const vec2 &center, float innerRad, float outerRad,
                                  const ColorAf &innerColor, const ColorAf &outerColor) {
   return nvgRadialGradient(get(), center.x, center.y, innerRad, outerRad,
-                           reinterpret_cast<const NVGcolor&>(innerColor),
-                           reinterpret_cast<const NVGcolor&>(outerColor));
+                           reinterpret_cast<const NVGcolor &>(innerColor),
+                           reinterpret_cast<const NVGcolor &>(outerColor));
 }
 
 NVGpaint Context::imagePattern(float cx, float cy, float w, float h, float angle,
@@ -342,6 +343,9 @@ void Context::stroke() {
 
 // Text //
 
+int Context::createFont(const std::string &name, const fs::path &filepath) {
+  return nvgCreateFont(get(), name.c_str(), filepath.c_str());
+}
 int Context::createFont(const std::string &name, const std::string &filename) {
   return nvgCreateFont(get(), name.c_str(), filename.c_str());
 }
@@ -410,4 +414,5 @@ Rectf Context::textBoxBounds(const Rectf &rect, const std::string &str) {
   return textBoxBounds(rect.getX1(), rect.getY1(), rect.getWidth(), str);
 }
 
-}} // cinder::nvg
+} // nvg
+} // cinder
