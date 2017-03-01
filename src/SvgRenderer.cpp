@@ -6,7 +6,7 @@
 namespace cinder { namespace nvg {
 
 SvgRenderer::SvgRenderer(Context &ctx) : mCtx{ ctx } {
-  mMatrixStack.push_back(mCtx.currentTransform());
+  mMatrixStack.emplace_back(1);
 
   mFillStack.push_back(svg::Paint(Color::black()));
   mStrokeStack.push_back(svg::Paint());
