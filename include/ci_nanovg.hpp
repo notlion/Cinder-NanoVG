@@ -68,6 +68,12 @@ public:
   void cancelFrame();
   void endFrame();
 
+  // Global Compositing //
+
+  void globalCompositeOperation(int op);
+  void globalCompositeBlendFunc(int sfactor, int dfactor);
+  void globalCompositeBlendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+
   // State Handling //
 
   void save();

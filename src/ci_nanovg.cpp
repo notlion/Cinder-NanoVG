@@ -126,6 +126,18 @@ void Context::endFrame() {
   nvgEndFrame(get());
 }
 
+// Global Compositing //
+
+void Context::globalCompositeOperation(int op) {
+  nvgGlobalCompositeOperation(get(), op);
+}
+void Context::globalCompositeBlendFunc(int sfactor, int dfactor) {
+  nvgGlobalCompositeBlendFunc(get(), sfactor, dfactor);
+}
+void Context::globalCompositeBlendFuncSeparate(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
+  nvgGlobalCompositeBlendFuncSeparate(get(), srcRGB, dstRGB, srcAlpha, dstAlpha);
+}
+
 // State Handling //
 
 void Context::save() {
