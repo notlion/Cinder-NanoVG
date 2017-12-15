@@ -6,7 +6,7 @@ if( NOT TARGET NanoVG )
 		${NanoVG_PATH}/src/ci_nanovg_gl.cpp
 		${NanoVG_PATH}/src/SvgRenderer.cpp
 	)
-	add_library( NanoVG ${NanoVG_SOURCES} )
+	add_library( NanoVG SHARED ${NanoVG_SOURCES} )
 
 	if( NOT TARGET cinder )
 	    include( "${CINDER_PATH}/proj/cmake/configure.cmake" )
@@ -16,7 +16,8 @@ if( NOT TARGET NanoVG )
 	endif()
 
 	target_include_directories( NanoVG PUBLIC "${NanoVG_PATH}/include" )
-
+	
+	set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 	get_filename_component( NanoVG_Deps_PATH "${NanoVG_PATH}/deps/nanovg/src" ABSOLUTE )
 	add_library( NanoVGDeps ${NanoVG_Deps_PATH}/nanovg.c )
 	target_include_directories( NanoVGDeps PUBLIC "${NanoVG_Deps_PATH}" )
