@@ -6,6 +6,7 @@
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 #include "cinder/Shape2d.h"
+#include "cinder/Filesystem.h"
 
 #include "nanovg.h"
 
@@ -47,6 +48,7 @@ protected:
 
   void path2dSegment(Path2d::SegmentType, const vec2 *p1, const vec2 *p2, const vec2 *p3);
 
+  std::string file;
 public:
   Context(NVGcontext *ptr, Deleter deleter);
   Context(Context&& ctx) : mPtr{ std::move(ctx.mPtr) } {}

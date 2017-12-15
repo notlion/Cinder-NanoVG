@@ -344,7 +344,15 @@ void Context::stroke() {
 // Text //
 
 int Context::createFont(const std::string &name, const fs::path &filepath) {
+#if defined( CINDER_UWP ) || ( defined( _MSC_VER ) && ( _MSC_VER >= 1900 ) )
+	std::wstring ws(filepath);
+  file = std::string(ws.begin(), ws.end());
+  return nvgCreateFont(get(), name.c_str(), file.c_str());
+#else
   return nvgCreateFont(get(), name.c_str(), filepath.c_str());
+#endif
+  
+  
 }
 int Context::createFont(const std::string &name, const std::string &filename) {
   return nvgCreateFont(get(), name.c_str(), filename.c_str());
