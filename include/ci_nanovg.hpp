@@ -6,6 +6,7 @@
 #include "cinder/Color.h"
 #include "cinder/PolyLine.h"
 #include "cinder/Shape2d.h"
+#include "cinder/Filesystem.h"
 
 #include "nanovg.h"
 
