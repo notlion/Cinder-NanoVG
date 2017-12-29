@@ -34,6 +34,10 @@ if( NOT TARGET Cinder-NanoVG )
 		${Cinder-NanoVG_SOURCES}
 	)
 
+	source_group( "deps\\nanovg\\src" FILES ${NanoVG_SOURCES} )
+	source_group( "src" FILES ${Cinder-NanoVG_SOURCES} )
+	source_group( "include" FILES ${Cinder-NanoVG_INCLUDES} )
+
 	add_library( Cinder-NanoVG ${Cinder-NanoVG_LIBRARIES} )
 	target_include_directories( Cinder-NanoVG PUBLIC "${CINDER_PATH}/include" ${NanoVG_SOURCE_PATH} ${Cinder-NanoVG_INC_PATH} )
 	
