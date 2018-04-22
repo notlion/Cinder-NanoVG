@@ -42,11 +42,13 @@ set( BLOCK_FILES
     ../../../../../Cinder-NanoVG
 )
 
-FIND_LIBRARY(COCOA_LIBRARY Cocoa)
+if( APPLE )
+	FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 
-set( LIB_FILES
-    ${COCOA_LIBRARY}
-)
+	set( LIB_FILES
+	    ${COCOA_LIBRARY}
+	)
+endif( APPLE )
 
 if( APPLE AND ( TARGET_OS_IPHONE OR TARGET_IPHONE_SIMULATOR ) )
 	find_library(UIKIT UIKit)
