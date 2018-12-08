@@ -344,7 +344,7 @@ void Context::stroke() {
 // Text //
 
 int Context::createFont(const std::string &name, const fs::path &filepath) {
-  return nvgCreateFont(get(), name.c_str(), filepath.c_str());
+  return createFont(name, filepath.string());
 }
 int Context::createFont(const std::string &name, const std::string &filename) {
   return nvgCreateFont(get(), name.c_str(), filename.c_str());
