@@ -42,22 +42,24 @@ set( BLOCK_FILES
     ../../../../../Cinder-NanoVG
 )
 
-FIND_LIBRARY(COCOA_LIBRARY Cocoa)
+if( APPLE )
+	FIND_LIBRARY(COCOA_LIBRARY Cocoa)
 
-set( LIB_FILES
-    ${COCOA_LIBRARY}
-)
-
-if( APPLE AND ( TARGET_OS_IPHONE OR TARGET_IPHONE_SIMULATOR ) )
-	find_library(UIKIT UIKit)
-	if(NOT UIKIT)
-  		message(FATAL_ERROR "UIKit library not found")
-	endif()
 	set( LIB_FILES
-		"-framework UIKit"
+		${COCOA_LIBRARY}
 	)
-	#message(${UIKIT_INCLUDE_DIR})
-endif()
+
+	if( TARGET_OS_IPHONE OR TARGET_IPHONE_SIMULATOR )
+		find_library(UIKIT UIKit)
+		if(NOT UIKIT)
+			message(FATAL_ERROR "UIKit library not found")
+		endif()
+		set( LIB_FILES
+			"-framework UIKit"
+		)
+		#message(${UIKIT_INCLUDE_DIR})
+	endif()
+endif( APPLE )
 
 ci_make_app(
     INCLUDES    ${INC_PATHS}
