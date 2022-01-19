@@ -1,4 +1,5 @@
 #include "ci_nanovg.hpp"
+#include "cinder/gl/gl.h"
 #include "SvgRenderer.hpp"
 
 namespace cinder {
@@ -128,7 +129,10 @@ void Context::cancelFrame() {
   nvgCancelFrame(get());
 }
 void Context::endFrame() {
+  GLuint lastProgram = 0;
+  glGetIntegerv(GL_CURRENT_PROGRAM, (GLint*)&lastProgram);  // Note: Keep the default shader from being removed from the stack.
   nvgEndFrame(get());
+  glUseProgram(lastProgram);
 }
 
 // Global Compositing //
